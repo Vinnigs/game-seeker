@@ -11,3 +11,13 @@ body {
   color: var(--foreground);
   font-family: var(--font-play);
 }
+
+h1 {
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 80px;
+}
+
+p {
+  font-size: 18px;
+}
