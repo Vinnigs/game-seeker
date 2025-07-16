@@ -1,8 +1,8 @@
-import Hero from "./_sections/Hero";
-import JogosPopulares from "./_sections/JogosPopulares";
-import Lancamentos from "./_sections/Lancamentos";
-import Footer from "./_sections/Footer";
-import Header from "./_sections/Header";
+import Hero from "./sections/Hero";
+import JogosPopulares from "./sections/JogosPopulares";
+import Lancamentos from "./sections/Lancamentos";
+import Footer from "./sections/Footer";
+import Header from "./sections/Header";
 
 export default function Home() {
   return (

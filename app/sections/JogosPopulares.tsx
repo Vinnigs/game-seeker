@@ -1,6 +1,6 @@
 "use client"
 
-import CardGame from "../_components/CardGame";
+import CardGame from "../components/shared/CardGame";
 
 export default function JogosPopulares() {
     return (

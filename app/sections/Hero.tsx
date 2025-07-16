@@ -3,7 +3,7 @@
 
 
 import Image from "next/image";
-import FormHero from "../_components/forms/FormHero";
+import FormHero from "../components/forms/FormHero";
 
 
 

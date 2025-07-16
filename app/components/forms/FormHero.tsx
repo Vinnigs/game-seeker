@@ -4,9 +4,9 @@ import { useState } from "react";
 import InputTextComponent from "./InputTextComponent";
 import SelectComponent, { SelectValuesType } from "./SelectComponent";
 import { Modal, Box, Typography, Button } from '@mui/material';
-import CardGame from "../CardGame";
+import CardGame from "../shared/CardGame";
 import { Icon } from "@iconify/react";
-import ModalComponent from "../ModalComponent";
+import ModalComponent from "../shared/ModalComponent";
 
 const plataformaValues: SelectValuesType[] = [
     { label: "PC", value: "pc" },
