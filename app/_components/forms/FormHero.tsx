@@ -1,8 +1,12 @@
 "use client"
 
+import { useState } from "react";
 import InputTextComponent from "./InputTextComponent";
 import SelectComponent, { SelectValuesType } from "./SelectComponent";
-
+import { Modal, Box, Typography, Button } from '@mui/material';
+import CardGame from "../CardGame";
+import { Icon } from "@iconify/react";
+import ModalComponent from "../ModalComponent";
 
 const plataformaValues: SelectValuesType[] = [
     { label: "PC", value: "pc" },
@@ -27,29 +31,52 @@ const generoValues: SelectValuesType[] = [
 
 export default function FormHero() {
 
+    const [openModal, setOpenModal] = useState<boolean>(false);
+
+    const toggleModal = () => {
+        if (openModal) setOpenModal(false) 
+        else setOpenModal(true)
+    } 
+
     return (
-        <div className="mt-[24px] max-w-[600px] flex flex-col items-start gap-[20px]">
-            <div className="w-full flex flex-row gap-[20px]">
-                <SelectComponent 
-                    id="plataforma"
-                    label="Plataforma"
-                    valuesLabel={plataformaValues}
-                />
-
-                <InputTextComponent 
-                    id="memoria-ram"
-                    label="Memória RAM"
-                />
-            </div>
-            
-
-            <SelectComponent 
-                id="genero"
-                label="Gênero"
-                valuesLabel={generoValues}
+        <>
+            <ModalComponent 
+                openModal = {openModal}
+                setOpenModal={setOpenModal}
             />
 
-            <a href="" className="primary-button">Descobrir</a>
-        </div>
+            <div className="mt-[24px] max-w-[600px] flex flex-col items-start gap-[20px]">
+                <div className="w-full flex flex-row gap-[20px]">
+                    <SelectComponent 
+                        id="plataforma"
+                        label="Plataforma"
+                        valuesLabel={plataformaValues}
+                    />
+
+                    <InputTextComponent 
+                        id="memoria-ram"
+                        label="Memória RAM"
+                    />
+                </div>
+                
+
+                <SelectComponent 
+                    id="genero"
+                    label="Gênero"
+                    valuesLabel={generoValues}
+                />
+
+                <a 
+                    href="#" 
+                    className="primary-button"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        toggleModal();
+                    }}
+                >
+                    Descobrir
+                </a>
+            </div>
+        </>
     );
 }
