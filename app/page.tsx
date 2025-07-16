@@ -1,26 +1,23 @@
-// import Image from "next/image";
+import Hero from "./_sections/Hero";
+import JogosPopulares from "./_sections/JogosPopulares";
+import Lancamentos from "./_sections/Lancamentos";
+import Footer from "./_sections/Footer";
+import Header from "./_sections/Header";
 
 export default function Home() {
   return (
-    <div className="">
-      {/* HEADER */}
-      {/* ~~~~ */}
+    <div className="container mx-auto">
+      
+      <Header />
 
+      <Hero />
 
-      {/* HERO */}
-      {/* ~~~~ */}
+      <JogosPopulares />
 
+      <Lancamentos />
 
-      {/* JOGOS POPULARES */}
-      {/* ~~~~ */}
+      <Footer />
 
-
-      {/* LANÇAMENTOS (SLIDER) */}
-      {/* ~~~~ */}
-
-
-      {/* FOOTER */}
-      {/* ~~~~ */}
     </div>
   );
 }
