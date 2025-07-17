@@ -1,8 +1,8 @@
 export type cardGameProps = {
-    titulo: string;
-    genero: string;
-    data: string;
-    plataforma: string;
-    imagem: string;
-    orientacao?: "horizontal" | "vertical";
+    title: string;
+    genre: string;
+    date: string;
+    platform: string;
+    image: string;
+    position?: "horizontal" | "vertical";
 }

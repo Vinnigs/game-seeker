@@ -4,13 +4,14 @@ import CardGame from "../../shared/CardGame";
 import { Icon } from "@iconify/react";
 import { paginationStyles } from "@/app/styles/paginationStyles";
 import { boxStyle } from "@/app/styles/muiStyles";
-import { modalComponentProps } from "./types";
+import { ModalSearchGameProps } from "./types";
 
 
-export default function ModalComponent({ 
+export default function ModalSearchGame({ 
     openModal = false,
-    setOpenModal
-}: modalComponentProps ) {
+    setOpenModal,
+    games
+}: ModalSearchGameProps ) {
 
     const [page, setPage] = useState<number>(1);
 
@@ -22,6 +23,12 @@ export default function ModalComponent({
         if (openModal) setOpenModal(false) 
         else setOpenModal(true)
     } 
+
+    const itemsPerPage = 6;
+    const pageCount = Math.ceil(games.length / itemsPerPage);
+
+    const start = (page - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
 
     return (
         <Modal
@@ -40,18 +47,21 @@ export default function ModalComponent({
 
                     <h3 className="mb-[32px]"> Encontramos esses jogos para você: </h3>
 
-                    <CardGame 
-                        data=""
-                        genero=""
-                        imagem=""
-                        plataforma=""
-                        titulo=""
-                        orientacao="horizontal"
-                    />
+                    {games.slice(start, end).map((game) => (
+                        <CardGame
+                            key={game.id}
+                            date={game.release_date}
+                            genre={game.genre}
+                            image={game.thumbnail}
+                            platform={game.platform}
+                            title={game.title}
+                            position="horizontal"
+                        />
+                    ))}
 
                     <div className="w-full mt-[24px] mb-[10px] flex justify-center items-center">
                         <Pagination 
-                            count={4}
+                            count={pageCount}
                             page={page}
                             onChange={handleChangePage}
                             sx={paginationStyles}

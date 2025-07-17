@@ -1,7 +1,7 @@
 "use client"
 
 import { Dispatch, SetStateAction, useState } from "react";
-import ModalComponent from "../../modals/ModalComponent";
+import ModalSearchGame from "../../modals/ModalSearchGame";
 import SelectComponent from "../SelectComponent";
 import InputTextComponent from "../InputTextComponent";
 import { genderOptions, plataformOptions } from "@/app/constants/formOptions";
@@ -14,7 +14,8 @@ import { formHeroProps } from "./types";
 export default function FormHero({ 
     formData, 
     setFormData,
-    handleSearch
+    handleSearch,
+    games
 }: formHeroProps) {
 
     const [openModal, setOpenModal] = useState<boolean>(false);
@@ -26,11 +27,10 @@ export default function FormHero({
 
     return (
         <>
-            
-
-            <ModalComponent 
+            <ModalSearchGame 
                 openModal = {openModal}
                 setOpenModal={setOpenModal}
+                games={games}
             />
 
             <div className="mt-[24px] max-w-[600px] flex flex-col items-start gap-[20px]">
@@ -71,8 +71,8 @@ export default function FormHero({
                     className="primary-button"
                     onClick={async (e) => {
                         e.preventDefault();
-                        toggleModal();
                         await handleSearch();
+                        toggleModal();
                     }}
                 >
                     Descobrir

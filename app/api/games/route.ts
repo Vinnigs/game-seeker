@@ -1,4 +1,3 @@
-// /api/games/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { fetchAndCacheGames } from "@/app/lib/cache/freetogame-cache";
 import { GameDetails } from "@/app/types/GameDetails";
