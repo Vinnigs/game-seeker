@@ -1,17 +1,16 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
 import { Modal, Box, Pagination } from '@mui/material';
-import CardGame from "./CardGame";
+import CardGame from "../../shared/CardGame";
 import { Icon } from "@iconify/react";
+import { paginationStyles } from "@/app/styles/paginationStyles";
+import { boxStyle } from "@/app/styles/muiStyles";
+import { modalComponentProps } from "./types";
 
-type modalComponentType = {
-    openModal: boolean;
-    setOpenModal: Dispatch<SetStateAction<boolean>>
-}
 
 export default function ModalComponent({ 
     openModal = false,
     setOpenModal
-}: modalComponentType) {
+}: modalComponentProps ) {
 
     const [page, setPage] = useState<number>(1);
 
@@ -30,19 +29,7 @@ export default function ModalComponent({
                 onClose={toggleModal}
             >
                 <Box
-                    sx={{
-                        position: 'absolute' as const,
-                        top: '50%',
-                        left: '50%',
-                        transform: 'translate(-50%, -50%)',
-                        width: "60%",
-                        bgcolor: '#1f1434',
-                        border: '1px solid #8D78E9',
-                        boxShadow: 24,
-                        borderRadius: 2,
-                        p: 4,
-                        color: 'white',
-                }}
+                    sx={boxStyle}
                 >
                     <button
                         className="absolute right-[32px] top-[32px] cursor-pointer" 
@@ -67,20 +54,7 @@ export default function ModalComponent({
                             count={4}
                             page={page}
                             onChange={handleChangePage}
-                            sx={{
-                                '& .MuiPaginationItem-root': {
-                                    color: '#fff',
-                                    borderColor: '#fff',
-                                    fontFamily: 'var(--font-play)'
-                                },
-                                '& .MuiPaginationItem-root.Mui-selected': {
-                                    backgroundColor: '#F26E22',
-                                    color: '#fff',
-                                },
-                                '& .MuiPaginationItem-root:hover': {
-                                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                                },
-                            }}
+                            sx={paginationStyles}
                         />
                     </div>
                     

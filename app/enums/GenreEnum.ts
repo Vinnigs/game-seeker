@@ -1,0 +1,15 @@
+export enum GenreEnum {
+    MMORPG = "mmorpg",
+    Shooter = "shooter",
+    MOBA = "moba",
+    Anime = "anime",
+    BattleRoyale = "battle-royale",
+    Strategy = "strategy",
+    Fantasy = "fantasy",
+    SciFi = "sci-fi",
+    CardGames = "card-games",
+    Racing = "racing",
+    Fighting = "fighting",
+    Social = "social",
+    Sports = "sports",
+}
