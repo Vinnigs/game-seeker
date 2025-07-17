@@ -1,10 +1,13 @@
-import { GenreEnum } from "../enums/GenreEnum";
-import { PlataformEnum } from "../enums/PlataformEnum";
-
-export default interface Game {
-    id: string;
+export type Game = {
+    id: number;
     title: string;
-    plataform: PlataformEnum;
-    ram: number;
-    genre: GenreEnum;
+    thumbnail: string;
+    short_description: string;
+    game_url: string;
+    genre: string;
+    platform: string;
+    publisher: string;
+    developer: string;
+    release_date: string;
+    freetogame_profile_url: string;
 }

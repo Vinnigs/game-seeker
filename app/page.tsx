@@ -4,10 +4,11 @@ import Lancamentos from "./sections/Lancamentos";
 import Footer from "./sections/Footer";
 import Header from "./sections/Header";
 
-export default function Home() {
+export default async function Home() {
+
   return (
     <div className="container mx-auto">
-      
+
       <Header />
 
       <Hero />

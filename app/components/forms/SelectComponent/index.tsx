@@ -13,9 +13,13 @@ import { MenuProps, SelectComponentProps } from './types';
 import { customArrowIcon } from './CustomArrowIcon';
 
 
-export default function SelectComponent( { id, label, valuesLabel }: SelectComponentProps ) {
-
-    const [value, setValue] = React.useState<string[]>([]);
+export default function SelectComponent({ 
+    id, 
+    label, 
+    valuesLabel,
+    value,
+    onChange 
+}: SelectComponentProps ) {
 
     const handleChange = (event: SelectChangeEvent<typeof value>) => {
         const {
@@ -23,7 +27,7 @@ export default function SelectComponent( { id, label, valuesLabel }: SelectCompo
         } = event;
 
         const selectedArray = typeof selected === 'string' ? selected.split(',') : selected;
-        setValue(selectedArray);
+        onChange(selectedArray);
     };
 
     return (

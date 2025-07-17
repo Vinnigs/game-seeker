@@ -1,6 +1,6 @@
 import { SelectValuesType } from "../components/forms/SelectComponent/types"
 import { GenreEnum } from "../enums/GenreEnum"
-import { PlataformEnum } from "../enums/PlataformEnum"
+import { PlatformEnum } from "../enums/PlataformEnum"
 
 export const genderOptions: SelectValuesType[] = [
     { label: "MMORPG", value: GenreEnum.MMORPG },
@@ -19,6 +19,6 @@ export const genderOptions: SelectValuesType[] = [
 ]
 
 export const plataformOptions: SelectValuesType[] = [
-    { label: "PC", value: PlataformEnum.PC },
-    { label: "Navegador", value: PlataformEnum.WebBrowser }
+    { label: "PC", value: PlatformEnum.PC },
+    { label: "Navegador", value: PlatformEnum.WebBrowser }
 ]

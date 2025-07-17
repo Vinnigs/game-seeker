@@ -1,5 +1,5 @@
 import { GenreEnum } from "@/app/enums/GenreEnum";
-import { PlataformEnum } from "@/app/enums/PlataformEnum";
+import { PlatformEnum } from "@/app/enums/PlataformEnum";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -15,12 +15,14 @@ export const MenuProps = {
 
 export type SelectValuesType = {
     label: string;
-    value: PlataformEnum | GenreEnum;
+    value: PlatformEnum | GenreEnum;
 }
 
 export type SelectComponentProps = {
   id: string;
   label: string;
   valuesLabel: SelectValuesType[];
+  value: string[];
+  onChange: (value: string[]) => void;
 };
 

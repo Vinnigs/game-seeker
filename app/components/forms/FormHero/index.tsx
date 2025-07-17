@@ -1,12 +1,21 @@
 "use client"
 
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import ModalComponent from "../../modals/ModalComponent";
 import SelectComponent from "../SelectComponent";
 import InputTextComponent from "../InputTextComponent";
 import { genderOptions, plataformOptions } from "@/app/constants/formOptions";
+import { formDataType } from "@/app/sections/Hero/types";
+import { formHeroProps } from "./types";
 
-export default function FormHero() {
+
+
+
+export default function FormHero({ 
+    formData, 
+    setFormData,
+    handleSearch
+}: formHeroProps) {
 
     const [openModal, setOpenModal] = useState<boolean>(false);
 
@@ -17,6 +26,8 @@ export default function FormHero() {
 
     return (
         <>
+            
+
             <ModalComponent 
                 openModal = {openModal}
                 setOpenModal={setOpenModal}
@@ -28,11 +39,19 @@ export default function FormHero() {
                         id="plataforma"
                         label="Plataforma"
                         valuesLabel={plataformOptions}
+                        value={formData.platform}
+                        onChange={(newValue) =>
+                            setFormData((prev) => ({ ...prev, platform: newValue }))
+                        }
                     />
 
                     <InputTextComponent 
                         id="memoria-ram"
                         label="Memória RAM"
+                        value={formData.memory}
+                        onChange={(e) => {
+                            setFormData((prev) => ({ ...prev, memory: e.target.value}))
+                        }}
                     />
                 </div>
                 
@@ -41,14 +60,19 @@ export default function FormHero() {
                     id="genero"
                     label="Gênero"
                     valuesLabel={genderOptions}
+                    value={formData.genre}
+                    onChange={(newValue) =>
+                        setFormData((prev) => ({ ...prev, genre: newValue }))
+                    }
                 />
 
                 <a 
                     href="#" 
                     className="primary-button"
-                    onClick={(e) => {
+                    onClick={async (e) => {
                         e.preventDefault();
                         toggleModal();
+                        await handleSearch();
                     }}
                 >
                     Descobrir

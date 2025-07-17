@@ -1,4 +1,4 @@
-export enum PlataformEnum {
-    PC = "pc",
-    WebBrowser = "web-browser"
+export enum PlatformEnum {
+    PC = "Windows",
+    WebBrowser = "Web Browser"
 }
