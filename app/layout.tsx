@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Play } from "next/font/google";
 import "./styles/globals.css";
+import { OverlayProvider } from "./contexts";
+import GlobalOverlay from "./components/overlays/GlobalOverlay";
 
 const playFontFamily = Play({
   variable: "--font-play",
@@ -9,8 +11,8 @@ const playFontFamily = Play({
 });
 
 export const metadata: Metadata = {
-  title: "Game Seeker",
-  description: "Descubra seu próximo jogo favorito!",
+  title: "GameSeeker",
+  description: "Descubra sua próxima aventura!",
   authors: [{ name: "Vinícius Gomes", url: "https://vinnigs.vercel.app/" }]
 };
 
@@ -24,7 +26,10 @@ export default function RootLayout({
       <body
         className={`${playFontFamily.variable} antialiased`}
       >
-        {children}
+        <OverlayProvider>
+          {children}
+          <GlobalOverlay />
+        </OverlayProvider>
       </body>
     </html>
   );

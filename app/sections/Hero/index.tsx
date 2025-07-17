@@ -3,14 +3,14 @@
 import Image from "next/image";
 import FormHero from "../../components/forms/FormHero";
 import { formDataType } from "./types";
-import { useState } from "react";
-import { fetchGamesDynamic } from "@/app/lib/api/freetogame";
+import { useEffect, useState } from "react";
 import { GameDetails } from "@/app/types/GameDetails";
-
-
+import { useOverlay } from "@/app/contexts";
 
 export default function Hero() {
     
+    const { setIsOpen: setIsOpenOverlay  } = useOverlay();
+
     const [games, setGames] = useState<GameDetails[]>([]);
     const [loading, setLoading] = useState<boolean>(false)
 
@@ -21,46 +21,49 @@ export default function Hero() {
     });
 
     const handleSearch = async () => {
-        console.log("chamou search")
-        setLoading(true);
+        try {
+            console.log("chamou search")
 
-        const response = await fetch("/api/games", {
-            method: "POST",
-            headers: {
-            "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-        });
+            const timeoutLoading = setTimeout(() => {
+                setLoading(true);
+            }, 300)
 
-        if (!response.ok) {
-            console.error("Erro ao buscar jogos");
+            const response = await fetch("/api/games", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+
+            clearTimeout(timeoutLoading);
+
+            if (!response.ok) {
+                console.error("Erro ao buscar jogos");
+                setLoading(false);
+                return;
+            }
+
+            const result = await response.json();
+            setGames(result);
+            console.log(result); // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        } catch (ex) {
+            throw new Error();
+        } finally {
             setLoading(false);
-            return;
         }
-
-        const result = await response.json();
-        setGames(result);
-        setLoading(false);
-        console.log(result);
     }
+
+    useEffect(() => {
+        if (loading) setIsOpenOverlay(true); 
+        else setIsOpenOverlay(false);
+    }, [loading]);
 
     return (
         <section className="mt-[120px] mb-[100px] flex justify-between">
             {loading && (
                 "CARREGANDO..."
             )}
-            <button
-                onClick={async () => {
-                    await handleSearch();
-                    console.log(games)
-                }}
-            >debug</button>
-            <button
-                onClick={() => {
-                    console.log(formData)
-                }}
-            >formData</button>
-            
 
             <div className="hero-container-left">
                 <h1>
@@ -76,6 +79,7 @@ export default function Hero() {
                     formData={formData}
                     setFormData={setFormData}
                     handleSearch={handleSearch}
+                    games={games}
                 />
             </div>
             
