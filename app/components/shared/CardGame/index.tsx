@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { cardGameProps } from "./types";
 
 const games = Array(4).fill({
   title: "Galatic Clash",
@@ -8,15 +9,6 @@ const games = Array(4).fill({
   image: "/assets/hero-thumb-game.png",
 });
 
-type CardGameType = {
-    titulo: string;
-    genero: string;
-    data: string;
-    plataforma: string;
-    imagem: string;
-    orientacao?: "horizontal" | "vertical";
-}
-
 export default function CardGame({
     titulo,
     genero,
@@ -24,7 +16,7 @@ export default function CardGame({
     plataforma,
     imagem,
     orientacao = "vertical"
-}: CardGameType) {
+}: cardGameProps) {
     return (
         <>
             {orientacao == "vertical" ? (

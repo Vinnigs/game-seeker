@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Play } from "next/font/google";
-import "./globals.css";
+import "./styles/globals.css";
 
 const playFontFamily = Play({
   variable: "--font-play",
