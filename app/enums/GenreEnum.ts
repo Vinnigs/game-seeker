@@ -3,7 +3,7 @@ export enum GenreEnum {
     Shooter = "shooter",
     MOBA = "moba",
     Anime = "anime",
-    BattleRoyale = "battle-royale",
+    BattleRoyale = "battle royale",
     Strategy = "strategy",
     Fantasy = "fantasy",
     SciFi = "sci-fi",

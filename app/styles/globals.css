@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+* {
+  font-family: "Play", sans-serif;
+}
+
 :root {
   --background: #1F1434;
   --foreground: #FFFFFF;
@@ -53,7 +57,14 @@ p.grey {
   border-radius: 5px;
   background: var(--color-primary);
   box-shadow: 0px 4px 20px 0px rgba(242, 110, 34, 0.20);
+  cursor: pointer;
 }
+.primary-button:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
 
 .secondary-button {
     display: flex;

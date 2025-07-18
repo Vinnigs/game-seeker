@@ -19,7 +19,6 @@ export default function MobileDrawerMenu() {
 
       <Transition show={isOpen} as={Fragment}>
         <Dialog as="div" className="fixed inset-0 z-50" onClose={closeMenu}>
-          {/* Overlay escurecido */}
           <Transition.Child
             as={Fragment}
             enter="transition-opacity ease-linear duration-200"
@@ -33,7 +32,6 @@ export default function MobileDrawerMenu() {
           </Transition.Child>
 
           <div className="fixed inset-0 flex">
-            {/* Painel lateral animado */}
             <Transition.Child
               as={Fragment}
               enter="transition ease-in-out duration-200 transform"
@@ -45,7 +43,7 @@ export default function MobileDrawerMenu() {
             >
               <Dialog.Panel
                 className="relative w-64 p-4 shadow-xl"
-                style={{ backgroundColor: "var(--background)" }} // ou: backgroundColor: "#1F1434"
+                style={{ backgroundColor: "var(--background)" }}
               >
                 <button onClick={closeMenu} className="absolute top-4 right-4">
                   <Icon icon="lucide:x" className="h-6 w-6 text-white cursor-pointer" />

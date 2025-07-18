@@ -23,10 +23,6 @@ export default function Header() {
                         <li><a href="/games">Lista de Jogos</a></li>
                     </ul>
                 </nav>
-                {/* <Icon 
-                    icon={"lucide:menu"}
-                    className="block lg:hidden size-[28px]"
-                /> */}
                 <MobileMenu />
             </div>
             
