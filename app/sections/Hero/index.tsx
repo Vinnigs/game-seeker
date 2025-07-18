@@ -57,7 +57,7 @@ export default function Hero() {
     }, [loading]);
 
     return (
-        <section className="mt-[160px] mb-[100px] flex justify-between">
+        <section className="mt-[160px] mb-[100px] flex flex-col gap-[64px] justify-between">
 
             <div className="hero-container-left">
                 <h1>
@@ -77,7 +77,7 @@ export default function Hero() {
                 />
             </div>
             
-            <div className="flex flex-col gap-[32px]">
+            <div className="flex flex-row gap-[32px]">
                 <a href="#">
                     <Image 
                         src={"/assets/hero-thumb-game.png"}
@@ -103,6 +103,6 @@ export default function Hero() {
                     />
                 </a>
             </div>
-            </section>
+        </section>
     );
 }

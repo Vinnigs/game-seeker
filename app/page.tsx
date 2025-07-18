@@ -11,7 +11,7 @@ export default async function Home() {
   const games: Game[] = await fetchGames();
 
   return (
-    <div className="container mx-auto">
+    <div className="container px-5 md:mx-auto">
 
       <Header />
 

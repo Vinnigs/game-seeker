@@ -18,7 +18,7 @@ export default async function GamePage({params}: Props) {
     const game: GameDetails = await fetchGamesById(parameters.id);
 
     return (
-        <div className="container mx-auto">
+        <div className="container px-5 md:mx-auto">
             <Header />
             
             <GamePageDetails game={game} />

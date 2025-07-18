@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`${playFontFamily.variable} antialiased`}
+        className={`${playFontFamily.variable} antialiased overflow-x-hidden`}
       >
         <OverlayProvider>
           {children}

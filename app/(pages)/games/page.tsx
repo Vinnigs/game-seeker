@@ -13,11 +13,9 @@ export default async function Games() {
     return (
         <div className="container mx-auto">
             <Header />
-            
-            
 
-            <div className="mb-[32px]">
-                <h2 className="mt-[64px] mb-[8px]">Todos os Jogos</h2>
+            <div className="mt-[130px] mb-[32px]">
+                <h2 className=" mb-[8px]">Todos os Jogos</h2>
 
                 <Breadcrumbs 
                     pages={[
