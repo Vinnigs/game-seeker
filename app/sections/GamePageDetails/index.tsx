@@ -8,6 +8,8 @@ import Image from "next/image";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import Breadcrumbs from '@/app/components/shared/Breadcrumbs';
+import Link from 'next/link';
 
 export default function GamePageDetails({game}: GamePageDetailsProps) {
 
@@ -33,8 +35,15 @@ export default function GamePageDetails({game}: GamePageDetailsProps) {
             </div>
 
             <div className="container-right w-[60%]">
-                <p>Início / JOGO</p>
-                <h2>{game.title}</h2>
+                <Breadcrumbs 
+                    pages={[
+                        <Link href="/">Início</Link>,
+                        <Link href="/games">Games</Link>
+                    ]}
+                    currentPage={<p>{game.title}</p>}
+                />
+
+                <h2 className="mt-[8px]">{game.title}</h2>
                 <p className="tag-button green small mt-[8px]">Gratuito</p>
 
                 <p className="mt-[24px] grey">{game.description}</p>

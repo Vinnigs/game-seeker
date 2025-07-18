@@ -22,8 +22,6 @@ export default function Hero() {
 
     const handleSearch = async () => {
         try {
-            console.log("chamou search") // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
             const timeoutLoading = setTimeout(() => {
                 setLoading(true);
             }, 300)
@@ -46,7 +44,6 @@ export default function Hero() {
 
             const result = await response.json();
             setGames(result);
-            console.log(result); // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
         } catch (ex) {
             throw new Error();
         } finally {
@@ -60,7 +57,7 @@ export default function Hero() {
     }, [loading]);
 
     return (
-        <section className="mt-[120px] mb-[100px] flex justify-between">
+        <section className="mt-[160px] mb-[100px] flex justify-between">
 
             <div className="hero-container-left">
                 <h1>

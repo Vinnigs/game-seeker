@@ -61,3 +61,24 @@ export const textFieldStyle = {
         },
     },
 }
+
+export const breadcrumbMuiStyles = {
+    color: 'white',
+    fontFamily: 'Play',
+    '& .MuiBreadcrumbs-li': {
+        opacity: 0.5,
+    },
+    '& .MuiBreadcrumbs-li:last-child': {
+        opacity: 1,
+    },
+    '& .MuiBreadcrumbs-separator': {
+        opacity: 0.5,
+    },
+    '& p' : {
+        fontSize: 16
+    },
+    '& .MuiBreadcrumbs-li:not(:last-child):hover': {
+        opacity: 1,
+        cursor: 'pointer',
+    },
+}

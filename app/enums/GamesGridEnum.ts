@@ -1,3 +1,3 @@
 export enum GamesGridEnum {
-    CardsLimit = 8
+    CardsLimit = 5
 }
