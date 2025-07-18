@@ -12,8 +12,9 @@ export type GameDetails = {
     developer: string;
     release_date: string;
     freetogame_profile_url: string;
-    minimum_system_requirements?: GameMinimumSystemRequirements | undefined;
+    minimum_system_requirements?: GameMinimumSystemRequirements;
     screenshots: GameScreenshots[];
+    tags?: string[];
 }
 
 export type GameMinimumSystemRequirements = {

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
     return (
@@ -26,30 +27,30 @@ export default function Footer() {
             <p>Desenvolvido por <strong>Vinícius Gomes</strong></p>
 
             <div className="flex flex-row justify-center lg:justify-end gap-[20px]">
-              <a href="#">
+              <Link target="_blank" href="https://vinnigs.vercel.app">
                 <Image 
                   src={"/assets/web-icon.svg"}
                   width={24}
                   height={24}
                   alt="Ícone Website pessoal Vinnigs"
                 />
-              </a>
-              <a href="#">
+              </Link>
+              <Link target="_blank" href="https://github.com/Vinnigs">
                 <Image 
                   src={"/assets/github-icon.svg"}
                   width={24}
                   height={24}
                   alt="Ícone GitHub Vinnigs"
                 />
-              </a>
-              <a href="#">
+              </Link>
+              <Link target="_blank" href="https://github.com/Vinnigs">
                 <Image 
                   src={"/assets/linkedin-icon.svg"}
                   width={24}
                   height={24}
                   alt="Ícone LinkedIn Vinicius Gomes"
                 />
-              </a>
+              </Link>
             </div>
           </div>
 

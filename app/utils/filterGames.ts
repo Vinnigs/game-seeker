@@ -1,49 +1,46 @@
 import { GameDetails } from "../types/GameDetails";
-import { checkMemoryRequirement } from "./checkMemoryRequirement";
 
 export function filterGames(
-    games: GameDetails[],
-    genre?: string[],
-    platform?: string[],
-    memory?: string
+  games: GameDetails[],
+  genresOrTags?: string[],
+  platforms?: string[],
+  memory?: string
 ): GameDetails[] {
-    const hasGenreFilter = genre && genre.length > 0;
-    const hasPlatformFilter = platform && platform.length > 0;
-    const hasMemoryFilter = memory && memory.trim() !== '';
+  // ✅ Retorna todos os jogos se nenhum filtro foi passado
+  const noFilters =
+    (!genresOrTags || genresOrTags.length === 0) &&
+    (!platforms || platforms.length === 0) &&
+    (!memory || memory.trim() === "");
 
-    if (!hasGenreFilter && !hasPlatformFilter && !hasMemoryFilter) {
-        return games;
-    }
+  if (noFilters) return games;
 
-    return games.filter(game => {
-    if (hasGenreFilter) {
-        const gameGenres = game.genre.toLowerCase().split(/,\s*/);
-        const hasMatchingGenre = genre!.some(g => 
-        gameGenres.includes(g.toLowerCase())
-        );
-        
-        if (!hasMatchingGenre) return false;
-    }
+  return games.filter((game) => {
+    const matchesPlatform = platforms?.length
+      ? platforms.map(normalize).includes(normalize(game.platform))
+      : true;
 
-    if (hasPlatformFilter) {
-        const gamePlatforms = game.platform.toLowerCase().split(/,\s*/);
-        const hasMatchingPlatform = platform!.some(p => 
-        gamePlatforms.includes(p.toLowerCase())
-        );
-        
-        if (!hasMatchingPlatform) return false;
-    }
+    const matchesGenreOrTag = genresOrTags?.length
+      ? genresOrTags.some((term) =>
+          game.genre?.toLowerCase() === term.toLowerCase() ||
+          game.tags?.some((tag) => tag.toLowerCase() === term.toLowerCase())
+        )
+      : true;
 
-    if (hasMemoryFilter) {
-        const userMemoryGB = parseFloat(memory!);
-        
-        const gameMemoryValue = checkMemoryRequirement(game.minimum_system_requirements?.memory);
-        
-        if (gameMemoryValue === null || userMemoryGB < gameMemoryValue) {
-        return false;
-        }
-    }
+    const matchesMemory = memory && !isNaN(Number(memory))
+        ? extractRamFromString(game.minimum_system_requirements?.memory) <= Number(memory)
+        : true;
 
-        return true;
-    });
+    return matchesPlatform && matchesGenreOrTag && matchesMemory;
+  });
+}
+
+
+function extractRamFromString(memoryStr?: string): number {
+  if (!memoryStr) return 0;
+  const match = memoryStr.match(/(\d+)/);
+  return match ? Number(match[1]) : 0;
+}
+
+function normalize(str: string): string {
+  return str.trim().toLowerCase();
 }
