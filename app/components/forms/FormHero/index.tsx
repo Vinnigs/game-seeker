@@ -67,7 +67,6 @@ export default function FormHero({
                 />
 
                 <a 
-                    href="#" 
                     className="primary-button"
                     onClick={async (e) => {
                         e.preventDefault();

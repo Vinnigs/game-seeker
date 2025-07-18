@@ -7,7 +7,7 @@ export enum GenreEnum {
     Strategy = "strategy",
     Fantasy = "fantasy",
     SciFi = "sci-fi",
-    CardGames = "card-games",
+    CardGames = "card",
     Racing = "racing",
     Fighting = "fighting",
     Social = "social",

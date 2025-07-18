@@ -1,6 +1,7 @@
 import Breadcrumbs from "@/app/components/shared/Breadcrumbs";
 import GamesGrid from "@/app/components/shared/GamesGrid";
 import { fetchGamesDynamic } from "@/app/lib/api/freetogame";
+import AllGames from "@/app/sections/AllGames";
 import Footer from "@/app/sections/Footer";
 import Header from "@/app/sections/Header";
 import { GameDetails } from "@/app/types/GameDetails";
@@ -11,7 +12,7 @@ export default async function Games() {
     const games: GameDetails[] = await fetchGamesDynamic();
 
     return (
-        <div className="container mx-auto">
+        <div className="container px-5 md:mx-auto">
             <Header />
 
             <div className="mt-[130px] mb-[32px]">
@@ -25,11 +26,8 @@ export default async function Games() {
                 />
             </div>
 
-            <GamesGrid 
-                games={games} 
-                cardsLimit={20}
-                pagination
-                cardsPosition={"vertical"}
+            <AllGames 
+                games={games}
             />
 
             <Footer />

@@ -33,24 +33,15 @@ export default function ModalSearchGame({
                         <Icon icon={"lucide:x"} width={24} height={24} /> 
                     </button>
 
-                    <h3 className="mb-[32px]"> Encontramos esses jogos para você: </h3>
+                    <h3 className="mb-[32px] hidden xl:block"> Encontramos esses jogos para você: </h3>
+                    <h3 className="px-[30px] mb-[32px] block xl:hidden"> Encontramos esses<br/>jogos para você: </h3>
 
                     <GamesGrid 
                         games={games}
                         cardsPosition="horizontal"
-                        cardsLimit={5}
+                        cardsLimit={4}
                         pagination
                     />
-
-                    {/* <div className="w-full mt-[24px] mb-[10px] flex justify-center items-center">
-                        <Pagination 
-                            count={pageCount}
-                            page={page}
-                            onChange={handleChangePage}
-                            sx={paginationStyles}
-                        />
-                    </div> */}
-                    
 
                 </Box>
             </Modal>

@@ -7,8 +7,6 @@ export default function Lancamentos() {
     <section className="mt-[100px]">
         <h3 className="mb-[32px]">Lançamentos</h3>
 
-
-        {/* WRAPPER */}
         <div className="
             relative
             left-1/2 ml-[-50vw] w-screen
