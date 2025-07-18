@@ -1,7 +1,9 @@
 import Image from "next/image";
 import { cardGameProps } from "./types";
+import Link from "next/link";
 
 export default function CardGame({
+    gameId,
     title,
     genre,
     date,
@@ -30,36 +32,36 @@ export default function CardGame({
     return (
         <>
             {position == "vertical" ? (
-                <a 
-                    href="#" 
-                    className="px-[24px] py-[28px] border border-[#8D78E9] rounded-[8px] bg-[rgba(255,255,255,0.03)]"
-                >
-                    <Image 
-                        src={image}
-                        width={300}
-                        height={300}
-                        alt="Jogo thumbnail"
-                        className="w-full max-h-[300px] rounded-[4px]"
-                    />
-                    <h3 className="mt-[14px]">{title}</h3>
-                    <p className="small grey">{genre}</p>
-    
-                    <div className="flex flex-row justify-between mt-[20px] px-[24px] py-[10px] bg-[rgba(141,120,233,0.20)] rounded-[4px]">
-                        <div className="flex flex-row items-center gap-[14px]">
-                            {icons.map(({ src, alt }) => (
-                                <Image key={alt} src={src} alt={alt} width={24} height={24} />
-                            ))}
+                    <Link 
+                        href={`/games/${gameId}`}
+                        className="px-[24px] py-[28px] border border-[#8D78E9] rounded-[8px] bg-[rgba(255,255,255,0.03)]"
+                    >
+                        <Image 
+                            src={image}
+                            width={300}
+                            height={300}
+                            alt="Jogo thumbnail"
+                            className="w-full max-h-[300px] rounded-[4px]"
+                        />
+                        <h3 className="mt-[14px]">{title}</h3>
+                        <p className="small grey">{genre}</p>
+
+                        <div className="flex flex-row justify-between mt-[20px] px-[24px] py-[10px] bg-[rgba(141,120,233,0.20)] rounded-[4px]">
+                            <div className="flex flex-row items-center gap-[14px]">
+                                {icons.map(({ src, alt }) => (
+                                    <Image key={alt} src={src} alt={alt} width={24} height={24} />
+                                ))}
+                            </div>
+                            
+            
+                            <div className="flex flex-col items-end">
+                                <p className="small">Lançamento</p>
+                                <p className="small grey">{date}</p>
+                            </div>
                         </div>
-                        
-        
-                        <div className="flex flex-col items-end">
-                            <p className="small">Lançamento</p>
-                            <p className="small grey">{date}</p>
-                        </div>
-                    </div>
-                </a>
+                    </Link>
             ) : (
-                <a 
+                <Link 
                     href="#" 
                     className="px-[20px] py-[14px] flex flex-row items-center justify-between border border-[#8D78E9] rounded-[8px] bg-[rgba(255,255,255,0.03)]"
                 >
@@ -89,7 +91,7 @@ export default function CardGame({
                             <p className="small grey">{date}</p>
                         </div>
                     </div>
-                </a>
+                </Link>
             )}
         </>
     );

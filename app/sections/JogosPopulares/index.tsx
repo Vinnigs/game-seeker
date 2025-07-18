@@ -2,6 +2,7 @@
 
 import CardGame from "@/app/components/shared/CardGame";
 import { JogosPopularesProps } from "./types";
+import GamesGrid from "@/app/components/shared/GamesGrid";
 
 export default function JogosPopulares({games}: JogosPopularesProps) {
 
@@ -14,26 +15,11 @@ export default function JogosPopulares({games}: JogosPopularesProps) {
                 <a href="" className="secondary-button">Ver todos</a>
             </div>
     
-            <div className="grid grid-cols-4 gap-[30px]">
-            
-            {games.slice(0, cardsLimit).map((game) => {
-                return (
-                    <CardGame 
-                        key={game.id}
-                        date={game.release_date}
-                        genre={game.genre}
-                        image={game.thumbnail}
-                        platform={game.platform}
-                        title={game.title}
-                        position="vertical"
-                    />
-                )
-            })}
-            
-                
-                
-                
-            </div>
-            </section>
+            <GamesGrid 
+                games={games}
+                cardsPosition="vertical"
+            />
+
+        </section>
     );
 }

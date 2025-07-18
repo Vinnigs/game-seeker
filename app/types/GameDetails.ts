@@ -12,16 +12,16 @@ export type GameDetails = {
     developer: string;
     release_date: string;
     freetogame_profile_url: string;
-    minimum_system_requirements: GameMinimumSystemRequirements;
+    minimum_system_requirements?: GameMinimumSystemRequirements | undefined;
     screenshots: GameScreenshots[];
 }
 
 export type GameMinimumSystemRequirements = {
-    os: string;
-    processor: string;
-    memory: string;
-    graphics: string;
-    storage: string;
+    os?: string;
+    processor?: string;
+    memory?: string;
+    graphics?: string;
+    storage?: string;
 }
 
 export type GameScreenshots = {

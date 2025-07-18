@@ -9,8 +9,8 @@ export async function fetchGames(): Promise<Game[]> {
     return fetcher<Game[]>(`${API_BASE_URL}/games`);
 }
 
-export async function fetchGamesById(id: string): Promise<Game> {
-    return fetcher<Game>(`${API_BASE_URL}/game?id=${id}`);
+export async function fetchGamesById(id: string): Promise<GameDetails> {
+    return fetcher<GameDetails>(`${API_BASE_URL}/game?id=${id}`);
 }
 
 export async function fetchGamesDynamic(

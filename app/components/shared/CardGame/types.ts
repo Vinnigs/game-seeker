@@ -1,4 +1,5 @@
 export type cardGameProps = {
+    gameId: number;
     title: string;
     genre: string;
     date: string;
