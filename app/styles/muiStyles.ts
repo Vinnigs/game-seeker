@@ -23,23 +23,46 @@ export const boxStyle = {
 }
 
 export const selectStyle = {
+  position: 'relative',
+  borderRadius: '3px',
+  background: 'rgba(255, 255, 255, 0.04)',
+  padding: '1px',
+  
+  '& .MuiOutlinedInput-root': {
+    position: 'relative',
+    background: 'rgba(255, 255, 255, 0.04)',
+    borderRadius: '3px',
+    zIndex: 1,
+  },
+
+  '&::before': {
+    content: '""',
+    position: 'absolute',
+    inset: 0,
+    borderRadius: '3px',
+    padding: '1px',
+    background: 'linear-gradient(150deg, rgba(141, 120, 233, 0.6), rgba(255, 255, 255, 0.6))',
+    WebkitMask:
+      'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+    WebkitMaskComposite: 'xor',
+    maskComposite: 'exclude',
+    zIndex: 0,
+    pointerEvents: 'none',
+  },
+
+  '& .MuiOutlinedInput-notchedOutline': {
+    border: 'none',
+  },
+
+  '& .MuiSelect-icon': {
+    top: '50%',
+    transform: 'translateY(-50%)',
+    right: 16,
     color: 'white',
-    '.MuiOutlinedInput-notchedOutline': {
-        borderColor: 'white'
-    },
-    '&:hover .MuiOutlinedInput-notchedOutline': {
-        borderColor: 'white'
-    },
-    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-        borderColor: 'white'
-    },
-    '& .MuiSelect-icon': {
-        top: '50%',
-        transform: 'translateY(-50%)',
-        right: 16
-    },
-    
-}
+  },
+
+  color: 'white',
+};
 
 export const inputLabelStyle = { 
     color: "white",
@@ -49,28 +72,52 @@ export const inputLabelStyle = {
 }
 
 export const textFieldStyle = {
-    width: "100%",
-    input: {
-        color: "white",
+  width: "100%",
+  borderRadius: "3px",
+
+  "& .MuiOutlinedInput-root": {
+    position: "relative",
+    borderRadius: "3px",
+    background: "rgba(255, 255, 255, 0.04)",
+    overflow: "hidden",
+
+    "& fieldset": {
+      border: "none",
     },
-    label: {
-        color: "white",
+
+    "&::before": {
+      content: '""',
+      position: "absolute",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      borderRadius: "3px",
+      padding: "1px",
+      background: "linear-gradient(150deg, rgba(141, 120, 233, 0.6), rgba(255, 255, 255, 0.6))",
+      WebkitMask:
+        "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+      WebkitMaskComposite: "xor",
+      pointerEvents: "none",
+      zIndex: 1,
     },
-    "& label.Mui-focused": {
-        color: "white",
+
+    "& input": {
+      position: "relative",
+      zIndex: 2,
+      color: "white",
     },
-    "& .MuiOutlinedInput-root": {
-        "& fieldset": {
-            borderColor: "white",
-        },
-        "&:hover fieldset": {
-            borderColor: "white",
-        },
-        "&.Mui-focused fieldset": {
-            borderColor: "white",
-        },
-    },
-}
+  },
+
+  "& label": {
+    color: "white",
+    zIndex: 2,
+  },
+
+  "& label.Mui-focused": {
+    color: "white",
+  },
+};
 
 export const breadcrumbMuiStyles = {
     color: 'white',

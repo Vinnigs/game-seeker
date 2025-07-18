@@ -3,10 +3,10 @@ import Link from "next/link";
 
 export default function Footer() {
     return (
-        <footer className="mt-[130px] mb-[56px] flex flex-col lg:flex-row lg:justify-between lg:items-end sm:flex-col ">
+        <footer className="relative mt-[-56px] pt-[180px] lg:mt-[-100px] lg:pt-[290px] pb-[56px] flex flex-col lg:flex-row lg:justify-between lg:items-end sm:flex-col ">
 
           <div className="mx-auto lg:mx-0 max-w-[600px]">
-            <h2 className="text-center lg:text-left">
+            <h2 className="text-center !text-[40px] lg:!text-[56px] lg:text-left">
               Obrigado por <br />
               chegar até aqui!
             </h2>
@@ -43,7 +43,7 @@ export default function Footer() {
                   alt="Ícone GitHub Vinnigs"
                 />
               </Link>
-              <Link target="_blank" href="https://github.com/Vinnigs">
+              <Link target="_blank" href="https://www.linkedin.com/in/vinni-gs/">
                 <Image 
                   src={"/assets/linkedin-icon.svg"}
                   width={24}
@@ -53,8 +53,9 @@ export default function Footer() {
               </Link>
             </div>
           </div>
-
         </div>
+        <div className='absolute left-1/2 -translate-x-1/2 top-0 w-screen h-full bg-cover bg-center bg-no-repeat bg-[url("/assets/bg-footer.png")] border-b-red-100 -z-10' />
+        <div className="absolute left-1/2 -translate-x-1/2 bottom-0 w-screen h-[1px] bg-[linear-gradient(90deg,_#8D78E9_39.42%,_#FFF_100%)]"></div>
       </footer>
     );
 }

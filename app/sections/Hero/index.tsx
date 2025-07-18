@@ -7,6 +7,11 @@ import { useEffect, useState } from "react";
 import { GameDetails } from "@/app/types/GameDetails";
 import { useOverlay } from "@/app/contexts";
 import TransitionAlert from "@/app/components/alerts/TransitionAlert";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 export type heroProps = {
     gamesHighlights: GameDetails[];
@@ -76,13 +81,11 @@ export default function Hero({gamesHighlights}: heroProps) {
 
 
     return (
-        // <section className='relative z-10 pt-[160px] pb-[100px] flex flex-col lg:flex-row gap-[64px] w-full justify-between bg-cover bg-center bg-no-repeat bg-[url("/assets/bg-hero-gameseeker.jpg")]'>
         <section className='relative z-10 pt-[160px] pb-[100px] flex flex-col lg:flex-row gap-[64px] w-full justify-between '>
             <div className='absolute left-0 top-0 w-screen h-full bg-cover bg-center bg-no-repeat bg-[url("/assets/bg-hero-gameseeker.jpg")] -z-10' />
             <div className="absolute bottom-0 left-0 w-screen h-32 bg-gradient-to-b from-transparent to-[#1F1434] -z-10" />
             <div className="absolute top-0 left-0 w-screen h-32 bg-gradient-to-t from-transparent to-[#1F1434] -z-10" />
             <div className="absolute top-0 left-0 w-24 h-full bg-gradient-to-l from-transparent to-[#1F1434] -z-10" />
-            {/* <div className="absolute top-0 right-0 w-24 h-full bg-gradient-to-r from-transparent to-[#1F1434] -z-1" /> */}
             
             <TransitionAlert
                 message={errorMessage}
@@ -110,23 +113,54 @@ export default function Hero({gamesHighlights}: heroProps) {
                     hasError={showError}
                 />
             </div>
-            
             {gamesHighlights && gamesHighlights.length >= 3 && (
-                <div className="flex flex-row lg:flex-col gap-[32px]">
-                    {gamesHighlights.slice(0, 3).map((game, index) => (
-                        <a key={index} href={`/games/${game.id}`}>
-                        {game?.screenshots?.[0]?.image && (
-                            <Image 
-                                src={game.screenshots[0].image.toString()}
-                                width={135}
-                                height={135}
-                                alt="Jogo destaque"
-                                className="w-[200px] h-[130px] object-cover rounded-[8px]"
-                            />
-                        )}
-                        </a>
-                    ))}
-                </div>
+                <>
+                    <div className="hidden lg:flex flex-row lg:flex-col gap-[32px]">
+                        {gamesHighlights.slice(0, 3).map((game, index) => (
+                            <a key={index} href={`/games/${game.id}`} className="rounded-[5px] border border-[#8d78e950] bg-white/5 shadow-[1px_4px_18px_rgba(25,24,37,0.32)]">
+                            {game?.screenshots?.[0]?.image && (
+                                <Image 
+                                    src={game.screenshots[0].image.toString()}
+                                    width={135}
+                                    height={135}
+                                    alt="Jogo destaque"
+                                    className="w-[200px] h-[130px] object-cover rounded-[8px]"
+                                />
+                            )}
+                            </a>
+                        ))}
+                    </div>
+                    <div className="block lg:hidden w-full h-full">
+                        <Swiper
+                            slidesPerView={2}
+                                spaceBetween={24}
+                                modules={[Autoplay]}
+                                loop
+                                autoplay={{ 
+                                    delay: 5000,
+                                    pauseOnMouseEnter: true,
+                                    disableOnInteraction: true
+                                }}
+                                speed={1500}
+                        >
+                            {gamesHighlights.slice(0, 3).map((game, index) => (
+                                <SwiperSlide>
+                                    <a key={index} href={`/games/${game.id}`} className="rounded-[5px]">
+                                    {game?.screenshots?.[0]?.image && (
+                                        <Image 
+                                            src={game.screenshots[0].image.toString()}
+                                            width={135}
+                                            height={135}
+                                            alt="Jogo destaque"
+                                            className="w-full h-[130px] object-cover rounded-[8px]"
+                                        />
+                                    )}
+                                    </a>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    </div>
+                </>
             )}
         </section>
     );

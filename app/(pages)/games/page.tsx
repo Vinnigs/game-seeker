@@ -1,5 +1,4 @@
 import Breadcrumbs from "@/app/components/shared/Breadcrumbs";
-import GamesGrid from "@/app/components/shared/GamesGrid";
 import { fetchGamesDynamic } from "@/app/lib/api/freetogame";
 import AllGames from "@/app/sections/AllGames";
 import Footer from "@/app/sections/Footer";

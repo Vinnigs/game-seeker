@@ -16,7 +16,9 @@ export default function GamePageDetails({game}: GamePageDetailsProps) {
     const [modalImage, setModalImage] = useState<string | null>(null);
 
     return (
-        <section className="mt-[130px] flex flex-col lg:flex-row gap-[24px] md:gap-[48px]">
+        <section className="relative mt-[130px] flex flex-col lg:flex-row gap-[24px] md:gap-[48px]">
+            <div className='absolute left-1/2 -translate-x-1/2 bottom-[60%] w-screen h-full bg-cover bg-center bg-no-repeat bg-[url("/assets/bg-games-populares.jpg")] -z-10' />
+
             <div className="!block md:!hidden">
                 <Breadcrumbs 
                     pages={[

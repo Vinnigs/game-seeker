@@ -1,8 +1,5 @@
-import { useState } from "react";
 import { Modal, Box, Pagination } from '@mui/material';
-import CardGame from "../../shared/CardGame";
 import { Icon } from "@iconify/react";
-import { paginationStyles } from "@/app/styles/paginationStyles";
 import { boxStyle } from "@/app/styles/muiStyles";
 import { ModalSearchGameProps } from "./types";
 import GamesGrid from "../../shared/GamesGrid";
