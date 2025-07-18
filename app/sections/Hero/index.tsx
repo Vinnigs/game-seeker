@@ -6,12 +6,19 @@ import { formDataType } from "./types";
 import { useEffect, useState } from "react";
 import { GameDetails } from "@/app/types/GameDetails";
 import { useOverlay } from "@/app/contexts";
+import TransitionAlert from "@/app/components/alerts/TransitionAlert";
 
-export default function Hero() {
+export type heroProps = {
+    gamesHighlights: GameDetails[];
+}
+
+export default function Hero({gamesHighlights}: heroProps) {
     
     const { setIsOpen: setIsOpenOverlay  } = useOverlay();
 
     const [games, setGames] = useState<GameDetails[]>([]);
+    const [errorMessage, setErrorMessage] = useState<string>("");
+    const [showError, setShowError] = useState<boolean>(false);
     const [loading, setLoading] = useState<boolean>(false)
 
     const [formData, setFormData] = useState<formDataType>({
@@ -20,16 +27,19 @@ export default function Hero() {
         memory: ""
     });
 
-    const handleSearch = async () => {
+    const handleError = (message: string) => {
+        setErrorMessage(message)
+        setShowError(true);
+    };
+
+    const handleSearch = async (): Promise<boolean> => {
         try {
-            const timeoutLoading = setTimeout(() => {
-                setLoading(true);
-            }, 300)
+            const timeoutLoading = setTimeout(() => setLoading(true), 300);
 
             const response = await fetch("/api/games", {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json",
+                "Content-Type": "application/json",
                 },
                 body: JSON.stringify(formData),
             });
@@ -37,27 +47,43 @@ export default function Hero() {
             clearTimeout(timeoutLoading);
 
             if (!response.ok) {
-                console.error("Erro ao buscar jogos");
-                setLoading(false);
-                return;
+                handleError("Erro ao buscar jogos");
+                return false;
             }
 
             const result = await response.json();
+
+            if (!result || result.length === 0) {
+                handleError("Ops! Nenhum resultado encontrado... Que tal revisar os filtros e tentar novamente?");
+                return false;
+            }
+
             setGames(result);
+            return true;
+
         } catch (ex) {
-            throw new Error();
+            handleError("Erro inesperado ao buscar jogos");
+            return false;
         } finally {
             setLoading(false);
         }
-    }
-
+    };
+    
     useEffect(() => {
         if (loading) setIsOpenOverlay(true); 
         else setIsOpenOverlay(false);
     }, [loading]);
 
+
     return (
-        <section className="mt-[160px] mb-[100px] flex justify-between">
+        <section className="mt-[160px] mb-[100px] flex flex-col lg:flex-row gap-[64px] justify-between">
+            <TransitionAlert
+                message={errorMessage}
+                severity="error"
+                duration={4000}
+                open={showError}
+                onClose={() => setShowError(false)}
+            />
 
             <div className="hero-container-left">
                 <h1>
@@ -74,35 +100,27 @@ export default function Hero() {
                     setFormData={setFormData}
                     handleSearch={handleSearch}
                     games={games}
+                    hasError={showError}
                 />
             </div>
             
-            <div className="flex flex-col gap-[32px]">
-                <a href="#">
-                    <Image 
-                        src={"/assets/hero-thumb-game.png"}
-                        width={135}
-                        height={135}
-                        alt="Jogo destaque"
-                    />
-                </a>
-                <a href="#">
-                    <Image 
-                        src={"/assets/hero-thumb-game.png"}
-                        width={135}
-                        height={135}
-                        alt="Jogo destaque"
-                    />
-                </a>
-                <a href="#">
-                    <Image 
-                        src={"/assets/hero-thumb-game.png"}
-                        width={135}
-                        height={135}
-                        alt="Jogo destaque"
-                    />
-                </a>
-            </div>
-            </section>
+            {gamesHighlights && gamesHighlights.length >= 3 && (
+                <div className="flex flex-row lg:flex-col gap-[32px]">
+                    {gamesHighlights.slice(0, 3).map((game, index) => (
+                        <a key={index} href={`/games/${game.id}`}>
+                        {game?.screenshots?.[0]?.image && (
+                            <Image 
+                                src={game.screenshots[0].image.toString()}
+                                width={135}
+                                height={135}
+                                alt="Jogo destaque"
+                                className="w-[200px] h-[130px] object-cover rounded-[8px]"
+                            />
+                        )}
+                        </a>
+                    ))}
+                </div>
+            )}
+        </section>
     );
 }

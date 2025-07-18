@@ -34,22 +34,17 @@ export default function CardGame({
             {position == "vertical" ? (
                     <Link 
                         href={`/games/${gameId}`}
-                        className="px-[24px] py-[28px] h-[440px] max-h-[600px] flex flex-col justify-between border border-[#8D78E9] rounded-[8px] bg-[rgba(255,255,255,0.03)]"
+                        className="px-[24px] py-[28px] border border-[#8D78E9] rounded-[8px] bg-[rgba(255,255,255,0.03)]"
                     >
-                        <div className="">
-                            <Image 
-                                src={image}
-                                width={300}
-                                height={300}
-                                alt="Jogo thumbnail"
-                                className="w-full h-full max-h-[200px] rounded-[4px]"
-                            />
-                            <div className="mt-[14px]">
-                                <h3 className="mb-[4px]">{title}</h3>
-                                <p className="small grey">{genre}</p>
-                            </div>
-                        </div>
-                        
+                        <Image 
+                            src={image}
+                            width={300}
+                            height={300}
+                            alt="Jogo thumbnail"
+                            className="w-full max-h-[300px] rounded-[4px]"
+                        />
+                        <h3 className="mt-[14px]">{title}</h3>
+                        <p className="small grey">{genre}</p>
 
                         <div className="flex flex-row justify-between mt-[20px] px-[24px] py-[10px] bg-[rgba(141,120,233,0.20)] rounded-[4px]">
                             <div className="flex flex-row items-center gap-[14px]">
@@ -68,15 +63,15 @@ export default function CardGame({
             ) : (
                 <Link 
                     href={`/games/${gameId}`}
-                    className="w-full px-[20px] py-[14px] flex flex-row items-center justify-between border border-[#8D78E9] rounded-[8px] bg-[rgba(255,255,255,0.03)]"
+                    className="w-full px-[20px] py-[14px] flex flex-row items-center justify-between border border-[#8D78E9] xl:rounded-[8px] bg-[rgba(255,255,255,0.03)]"
                 >
-                    <div className="w-full flex flex-row items-center gap-[32px]">
+                    <div className="w-full flex flex-row items-center gap-[14px] lg:gap-[32px]">
                         <Image 
                             src={image}
                             width={200}
                             height={75}
                             alt="Jogo thumbnail"
-                            className="w-full max-w-[200px] max-h-[75px] rounded-[4px]"
+                            className="w-[45%] lg:w-full max-w-[200px] max-h-[75px] rounded-[4px]"
                         />
                         <div className="flex flex-col gap-[4px]">
                             <h3 className="">{title}</h3>
@@ -84,7 +79,7 @@ export default function CardGame({
                         </div>
                     </div>
     
-                    <div className="w-full max-w-[350px] flex flex-row justify-between px-[24px] py-[10px] bg-[rgba(141,120,233,0.20)] rounded-[4px] gap-[64px]">
+                    <div className="w-full max-w-[350px] hidden lg:flex flex-row justify-between px-[24px] py-[10px] bg-[rgba(141,120,233,0.20)] rounded-[4px] gap-[64px]">
                         <div className="flex flex-row items-center gap-[14px]">
                             {icons.map(({ src, alt }) => (
                                 <Image key={alt} src={src} alt={alt} width={24} height={24} />

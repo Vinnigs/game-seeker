@@ -16,8 +16,17 @@ export default function GamePageDetails({game}: GamePageDetailsProps) {
     const [modalImage, setModalImage] = useState<string | null>(null);
 
     return (
-        <section className="mt-[80px] flex flex-row gap-[48px]">
-            <div className="sticky w-[40%] top-[32px] h-[100%] flex flex-col items-start ">
+        <section className="mt-[130px] flex flex-col lg:flex-row gap-[24px] md:gap-[48px]">
+            <div className="!block md:!hidden">
+                <Breadcrumbs 
+                    pages={[
+                        <Link href="/">Início</Link>,
+                        <Link href="/games">Games</Link>
+                    ]}
+                    currentPage={<p>{game.title}</p>}
+                />
+            </div>
+            <div className="lg:sticky relative lg:w-[40%] lg:top-[130px] h-[100%] flex flex-col items-start ">
                 <Image 
                     src={game.thumbnail}
                     width={201}
@@ -28,25 +37,39 @@ export default function GamePageDetails({game}: GamePageDetailsProps) {
                 <a 
                     href={game.game_url} 
                     target="_blank" 
-                    className="primary-button mt-[-24px] ml-[32px]"
+                    className="!hidden lg:!flex primary-button mt-[-24px] lg:ml-[32px]"
                 >
                     <button className="uppercase font-black">Jogar Agora</button>
                 </a>
             </div>
 
-            <div className="container-right w-[60%]">
-                <Breadcrumbs 
-                    pages={[
-                        <Link href="/">Início</Link>,
-                        <Link href="/games">Games</Link>
-                    ]}
-                    currentPage={<p>{game.title}</p>}
-                />
+            <div className="container-right lg:w-[60%] flex flex-col items-start">
+                <div className="!hidden md:!block">
+                    <Breadcrumbs 
+                        pages={[
+                            <Link href="/">Início</Link>,
+                            <Link href="/games">Games</Link>
+                        ]}
+                        currentPage={<p>{game.title}</p>}
+                    />
+                </div>
+                
 
-                <h2 className="mt-[8px]">{game.title}</h2>
-                <p className="tag-button green small mt-[8px]">Gratuito</p>
+                <div className="flex items-center justify-between w-full">
+                    <h2 className="mt-0 mb-3 md:mt-[8px]">{game.title}</h2>
+                    <p className="!hidden md:!block lg:!hidden tag-button green small mt-5">Gratuito</p>
+                </div>
+                
+                <a 
+                    href={game.game_url} 
+                    target="_blank" 
+                    className="lg:!hidden primary-button mt-4"
+                >
+                    <button className="uppercase font-black">Jogar Agora</button>
+                </a>
+                <p className="block md:!hidden lg:!block tag-button green small mt-5">Gratuito</p>
 
-                <p className="mt-[24px] grey">{game.description}</p>
+                <p className="mt-[48px] lg:mt-[24px] grey">{game.description}</p>
 
                 <div className="mt-[40px] w-[100%]">
                     <h3>Galeria</h3>
@@ -90,7 +113,7 @@ export default function GamePageDetails({game}: GamePageDetailsProps) {
 
                 { game.release_date && game.developer && game.publisher && game.genre && game.platform ? (
                     
-                    <div className="info-adicionais mt-[48px]">
+                    <div className="info-adicionais mt-[48px] w-full">
                         <h3>Informações Adicionais</h3>
                         
                         <div className="mt-[24px] grid grid-cols-3 gap-[40px]">
@@ -107,7 +130,7 @@ export default function GamePageDetails({game}: GamePageDetailsProps) {
                                 <p>{game.publisher}</p>
                             </div>
                             <div className="flex flex-col gap-[4px]">
-                                <p>Gênero</p>
+                                <p className="grey">Gênero</p>
                                 <p>{game.genre}</p>
                             </div>
                             <div className="flex flex-col gap-[4px]">
@@ -124,7 +147,7 @@ export default function GamePageDetails({game}: GamePageDetailsProps) {
                     && game.minimum_system_requirements?.memory
                     && game.minimum_system_requirements?.graphics
                     && game.minimum_system_requirements?.storage ? (
-                    <div className="requisitos-minimos mt-[48px]">
+                    <div className="mt-[64px] lg:mt-[48px]">
                         <h3>Requisitos Minímos</h3>
                         
                         <div className="mt-[24px] grid grid-cols-2 gap-[40px]">
@@ -141,7 +164,7 @@ export default function GamePageDetails({game}: GamePageDetailsProps) {
                                 <p>{game.minimum_system_requirements.memory}</p>
                             </div>
                             <div className="flex flex-col gap-[4px]">
-                                <p>Gráficos</p>
+                                <p className="grey">Gráficos</p>
                                 <p>{game.minimum_system_requirements.graphics}</p>
                             </div>
                             <div className="flex flex-col gap-[4px]">
@@ -153,7 +176,6 @@ export default function GamePageDetails({game}: GamePageDetailsProps) {
                 ) : null}
             </div>
 
-            {/* MODAL */}
             {modalImage && (
                 <div
                 className="fixed inset-0 bg-[rgba(0,0,0,0.7)] flex items-center justify-center z-50"

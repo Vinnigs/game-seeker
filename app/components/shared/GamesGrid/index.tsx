@@ -1,12 +1,13 @@
 "use client"
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CardGame from "../CardGame";
 import { gamesGridProps } from "./types";
 import { Pagination } from "@mui/material";
 import { paginationStyles } from "@/app/styles/paginationStyles";
 import { PaginationEnum } from "@/app/enums/PaginationEnum";
 import { GamesGridEnum } from "@/app/enums/GamesGridEnum";
+import { useIsMobile } from "@/app/hooks/useIsMobile";
 
 export default function GamesGrid({
     games,
@@ -15,12 +16,12 @@ export default function GamesGrid({
     cardsLimit
 }: gamesGridProps) {
     
-  const [page, setPage] = useState<number>(1);
-  const itemsPerPage = cardsLimit;
+    const [page, setPage] = useState<number>(1);
+    const itemsPerPage = cardsLimit;
 
-  const pageCount = Math.ceil(games.length / Number(itemsPerPage));
-  const start = (page - 1) * Number(itemsPerPage);
-  const end = start + Number(itemsPerPage);
+    const pageCount = Math.ceil(games.length / Number(itemsPerPage));
+    const start = (page - 1) * Number(itemsPerPage);
+    const end = start + Number(itemsPerPage);
 
     return (
         <>
@@ -28,7 +29,7 @@ export default function GamesGrid({
                 <>
                     <div className={`w-full ${
                         cardsPosition === "vertical"
-                        ? "grid grid-cols-4 gap-[30px]"
+                        ? "grid grid-cols-2 lg:grid-cols-4 gap-[30px]"
                         : "flex flex-wrap items-start"
                     }`}>
                         {games.slice(start, end).map((game) => (
@@ -54,7 +55,9 @@ export default function GamesGrid({
                     </div>
                 </>
             ) : (
-                <div className={cardsPosition == "vertical" ? "grid grid-cols-4 gap-[30px]" : "gap-[30px]"}>
+                <div 
+                    className={cardsPosition == "vertical" ? "grid grid-cols-2 lg:grid-cols-4 gap-[30px]" : "gap-[30px]"}
+                >
                     {games.slice(0, cardsLimit).map((game) => {
                         return (
                             <CardGame

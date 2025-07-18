@@ -3,19 +3,25 @@ import JogosPopulares from "./sections/JogosPopulares";
 import Lancamentos from "./sections/Lancamentos";
 import Footer from "./sections/Footer";
 import Header from "./sections/Header";
-import { fetchGames } from "./lib/api/freetogame";
-import { Game } from "./types/Game";
+import { fetchGamesDynamic } from "./lib/api/freetogame";
+import { getRandomGameWithScreenshots } from "./utils/getRandomGameWithScreenshots";
+import { GameDetails } from "./types/GameDetails";
+import TransitionAlert from "./components/alerts/TransitionAlert";
 
 export default async function Home() {
 
-  const games: Game[] = await fetchGames();
+  const games: GameDetails[] = await fetchGamesDynamic();
 
+  const randomGames: GameDetails[] = getRandomGameWithScreenshots(games, Math.min(3, games.length));;
+  
   return (
-    <div className="container mx-auto">
+    <div className="container px-5 md:mx-auto">
 
       <Header />
 
-      <Hero />
+      <Hero 
+        gamesHighlights={randomGames} 
+      />
 
       <JogosPopulares
         games={games}

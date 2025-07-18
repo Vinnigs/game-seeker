@@ -3,12 +3,22 @@ export const boxStyle = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: "60%",
+    width: {
+        xs: "95%",
+        sm: "95%",
+        md: "85%",
+        lg: "60%"
+    },
     bgcolor: '#1f1434',
     border: '1px solid #8D78E9',
     boxShadow: 24,
     borderRadius: 2,
-    p: 4,
+    py: 4,
+    px: {
+        sm: 0,
+        md: 0,
+        lg: 4
+    },
     color: 'white',
 }
 
