@@ -34,17 +34,22 @@ export default function CardGame({
             {position == "vertical" ? (
                     <Link 
                         href={`/games/${gameId}`}
-                        className="px-[24px] py-[28px] border border-[#8D78E9] rounded-[8px] bg-[rgba(255,255,255,0.03)]"
+                        className="px-[24px] py-[28px] h-[440px] max-h-[600px] flex flex-col justify-between border border-[#8D78E9] rounded-[8px] bg-[rgba(255,255,255,0.03)]"
                     >
-                        <Image 
-                            src={image}
-                            width={300}
-                            height={300}
-                            alt="Jogo thumbnail"
-                            className="w-full max-h-[300px] rounded-[4px]"
-                        />
-                        <h3 className="mt-[14px]">{title}</h3>
-                        <p className="small grey">{genre}</p>
+                        <div className="">
+                            <Image 
+                                src={image}
+                                width={300}
+                                height={300}
+                                alt="Jogo thumbnail"
+                                className="w-full h-full max-h-[200px] rounded-[4px]"
+                            />
+                            <div className="mt-[14px]">
+                                <h3 className="mb-[4px]">{title}</h3>
+                                <p className="small grey">{genre}</p>
+                            </div>
+                        </div>
+                        
 
                         <div className="flex flex-row justify-between mt-[20px] px-[24px] py-[10px] bg-[rgba(141,120,233,0.20)] rounded-[4px]">
                             <div className="flex flex-row items-center gap-[14px]">
@@ -62,8 +67,8 @@ export default function CardGame({
                     </Link>
             ) : (
                 <Link 
-                    href="#" 
-                    className="px-[20px] py-[14px] flex flex-row items-center justify-between border border-[#8D78E9] rounded-[8px] bg-[rgba(255,255,255,0.03)]"
+                    href={`/games/${gameId}`}
+                    className="w-full px-[20px] py-[14px] flex flex-row items-center justify-between border border-[#8D78E9] rounded-[8px] bg-[rgba(255,255,255,0.03)]"
                 >
                     <div className="w-full flex flex-row items-center gap-[32px]">
                         <Image 

@@ -5,13 +5,17 @@ import Header from "@/app/sections/Header";
 import Lancamentos from "@/app/sections/Lancamentos";
 import { GameDetails } from "@/app/types/GameDetails";
 
-interface Props {
-  params: { id: string };
+type Props = {
+  params: {
+    id: string;
+  };
 }
 
-export default async function GamePage({ params }: Props) {
+export default async function GamePage({params}: Props) {
 
-    const game: GameDetails = await fetchGamesById(params.id);
+    const parameters = await params;
+
+    const game: GameDetails = await fetchGamesById(parameters.id);
 
     return (
         <div className="container mx-auto">

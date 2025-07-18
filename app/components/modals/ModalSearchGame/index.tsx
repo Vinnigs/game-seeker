@@ -5,6 +5,7 @@ import { Icon } from "@iconify/react";
 import { paginationStyles } from "@/app/styles/paginationStyles";
 import { boxStyle } from "@/app/styles/muiStyles";
 import { ModalSearchGameProps } from "./types";
+import GamesGrid from "../../shared/GamesGrid";
 
 
 export default function ModalSearchGame({ 
@@ -12,23 +13,10 @@ export default function ModalSearchGame({
     setOpenModal,
     games
 }: ModalSearchGameProps ) {
-
-    const [page, setPage] = useState<number>(1);
-
-    const handleChangePage = (_e: React.ChangeEvent<unknown>, value: number) => {
-        setPage(value)
-    }
-
     const toggleModal = () => {
         if (openModal) setOpenModal(false) 
         else setOpenModal(true)
     } 
-
-    const itemsPerPage = 6;
-    const pageCount = Math.ceil(games.length / itemsPerPage);
-
-    const start = (page - 1) * itemsPerPage;
-    const end = start + itemsPerPage;
 
     return (
         <Modal
@@ -47,27 +35,21 @@ export default function ModalSearchGame({
 
                     <h3 className="mb-[32px]"> Encontramos esses jogos para você: </h3>
 
-                    {games.slice(start, end).map((game) => (
-                        <CardGame
-                            gameId={game.id}
-                            key={game.id}
-                            date={game.release_date}
-                            genre={game.genre}
-                            image={game.thumbnail}
-                            platform={game.platform}
-                            title={game.title}
-                            position="horizontal"
-                        />
-                    ))}
+                    <GamesGrid 
+                        games={games}
+                        cardsPosition="horizontal"
+                        cardsLimit={5}
+                        pagination
+                    />
 
-                    <div className="w-full mt-[24px] mb-[10px] flex justify-center items-center">
+                    {/* <div className="w-full mt-[24px] mb-[10px] flex justify-center items-center">
                         <Pagination 
                             count={pageCount}
                             page={page}
                             onChange={handleChangePage}
                             sx={paginationStyles}
                         />
-                    </div>
+                    </div> */}
                     
 
                 </Box>

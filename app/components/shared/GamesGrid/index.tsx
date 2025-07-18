@@ -11,49 +11,50 @@ import { GamesGridEnum } from "@/app/enums/GamesGridEnum";
 export default function GamesGrid({
     games,
     pagination,
-    cardsPosition
+    cardsPosition,
+    cardsLimit
 }: gamesGridProps) {
     
-    const [page, setPage] = useState<number>(1);
+  const [page, setPage] = useState<number>(1);
+  const itemsPerPage = cardsLimit;
 
-    const handleChangePage = (_e: React.ChangeEvent<unknown>, value: number) => {
-        setPage(value)
-    }
+  const pageCount = Math.ceil(games.length / Number(itemsPerPage));
+  const start = (page - 1) * Number(itemsPerPage);
+  const end = start + Number(itemsPerPage);
 
-    const cardsLimit = GamesGridEnum.CardsLimit;
-
-    const itemsPerPage = PaginationEnum.itemsPerPage;
-
-    const pageCount = Math.ceil(games.length / itemsPerPage);
-    const start = (page - 1) * itemsPerPage;
-    const end = start + itemsPerPage;
     return (
         <>
             {pagination ? (
                 <>
-                    {games.slice(start, end).map((game) => (
-                        <CardGame
-                            gameId={game.id}
-                            key={game.id}
-                            date={game.release_date}
-                            genre={game.genre}
-                            image={game.thumbnail}
-                            platform={game.platform}
-                            title={game.title}
-                            position={cardsPosition}
-                        />
-                    ))}
-                    <div className="w-full mt-[24px] mb-[10px] flex justify-center items-center">
+                    <div className={`w-full ${
+                        cardsPosition === "vertical"
+                        ? "grid grid-cols-4 gap-[30px]"
+                        : "flex flex-wrap items-start"
+                    }`}>
+                        {games.slice(start, end).map((game) => (
+                            <CardGame
+                                gameId={game.id}
+                                key={game.id}
+                                date={game.release_date}
+                                genre={game.genre}
+                                image={game.thumbnail}
+                                platform={game.platform}
+                                title={game.title}
+                                position={cardsPosition}
+                            />
+                        ))}
+                    </div>
+                    <div className="w-full mt-[40px] mb-[10px] flex justify-center items-center">
                         <Pagination 
                             count={pageCount}
                             page={page}
-                            onChange={handleChangePage}
+                            onChange={(_e, value) => setPage(value)}
                             sx={paginationStyles}
                         />
                     </div>
                 </>
             ) : (
-                <div className="grid grid-cols-4 gap-[30px]">
+                <div className={cardsPosition == "vertical" ? "grid grid-cols-4 gap-[30px]" : "gap-[30px]"}>
                     {games.slice(0, cardsLimit).map((game) => {
                         return (
                             <CardGame
