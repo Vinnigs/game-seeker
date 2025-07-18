@@ -1,6 +1,7 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Image from "next/image";
 import Link from "next/link";
+import MobileMenu from "../components/shared/MobileMenu";
 
 export default function Header() {
     return (
@@ -22,10 +23,11 @@ export default function Header() {
                         <li><a href="/games">Lista de Jogos</a></li>
                     </ul>
                 </nav>
-                <Icon 
+                {/* <Icon 
                     icon={"lucide:menu"}
                     className="block lg:hidden size-[28px]"
-                />
+                /> */}
+                <MobileMenu />
             </div>
             
         </header>
