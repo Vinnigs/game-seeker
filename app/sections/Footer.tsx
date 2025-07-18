@@ -16,7 +16,7 @@ export default function Footer() {
 
         <div className="flex flex-col items-end gap-[24px]">
           <Image 
-            src={"assets/logo-GameSeeker.svg"}
+            src={"/assets/logo-GameSeeker.svg"}
             width={201}
             height={31}
             alt="Logo GameSeeker"
@@ -28,7 +28,7 @@ export default function Footer() {
             <div className="flex flex-row justify-end gap-[20px]">
               <a href="#">
                 <Image 
-                  src={"assets/web-icon.svg"}
+                  src={"/assets/web-icon.svg"}
                   width={24}
                   height={24}
                   alt="Ícone Website pessoal Vinnigs"
@@ -36,7 +36,7 @@ export default function Footer() {
               </a>
               <a href="#">
                 <Image 
-                  src={"assets/github-icon.svg"}
+                  src={"/assets/github-icon.svg"}
                   width={24}
                   height={24}
                   alt="Ícone GitHub Vinnigs"
@@ -44,7 +44,7 @@ export default function Footer() {
               </a>
               <a href="#">
                 <Image 
-                  src={"assets/linkedin-icon.svg"}
+                  src={"/assets/linkedin-icon.svg"}
                   width={24}
                   height={24}
                   alt="Ícone LinkedIn Vinicius Gomes"

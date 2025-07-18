@@ -1,7 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { fetchAndCacheGames } from "@/app/lib/cache/freetogame-cache";
 import { GameDetails } from "@/app/types/GameDetails";
-import { checkMemoryRequirement } from "@/app/utils/checkMemoryRequirement";
 import { fetchGamesDynamic } from "@/app/lib/api/freetogame";
 
 export async function POST(req: NextRequest) {

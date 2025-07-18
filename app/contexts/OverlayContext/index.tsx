@@ -17,7 +17,7 @@ export const OverlayProvider = ({ children }: { children: ReactNode }) => {
 
   const closeOverlay = () => {
     setIsOpen(false);
-    setTimeout(() => setContent(null), 300); // Limpa conteúdo após animação
+    setTimeout(() => setContent(null), 300);
   };
 
   return (

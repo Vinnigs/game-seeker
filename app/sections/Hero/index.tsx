@@ -22,7 +22,7 @@ export default function Hero() {
 
     const handleSearch = async () => {
         try {
-            console.log("chamou search")
+            console.log("chamou search") // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
             const timeoutLoading = setTimeout(() => {
                 setLoading(true);
@@ -61,9 +61,6 @@ export default function Hero() {
 
     return (
         <section className="mt-[120px] mb-[100px] flex justify-between">
-            {loading && (
-                "CARREGANDO..."
-            )}
 
             <div className="hero-container-left">
                 <h1>

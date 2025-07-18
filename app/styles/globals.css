@@ -4,6 +4,7 @@
   --background: #1F1434;
   --foreground: #FFFFFF;
   --font-play: "Play", sans-serif;
+  --color-primary: #F26E22
 }
 
 body {
@@ -39,7 +40,7 @@ p.small {
 }
 
 p.grey {
-  opacity: .5;
+  opacity: .7;
 }
 
 
@@ -50,7 +51,7 @@ p.grey {
   align-items: flex-start;
   gap: 10px;
   border-radius: 5px;
-  background: #F26E22;
+  background: var(--color-primary);
   box-shadow: 0px 4px 20px 0px rgba(242, 110, 34, 0.20);
 }
 
@@ -62,6 +63,19 @@ p.grey {
     gap: 10px;
     border-radius: 5px;
     border: 1px solid #8D78E9;
+}
+
+.tag-button {
+  display: inline-flex;
+  padding: 4px 14px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  background-color: var(--color-primary);
+  border-radius: 5px;
+}
+.tag-button.green {
+  background-color: #246E51
 }
 
 /* MUI Custom CSS */

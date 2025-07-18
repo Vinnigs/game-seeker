@@ -49,6 +49,7 @@ export default function ModalSearchGame({
 
                     {games.slice(start, end).map((game) => (
                         <CardGame
+                            gameId={game.id}
                             key={game.id}
                             date={game.release_date}
                             genre={game.genre}
