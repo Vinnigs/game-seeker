@@ -76,7 +76,14 @@ export default function Hero({gamesHighlights}: heroProps) {
 
 
     return (
-        <section className="mt-[160px] mb-[100px] flex flex-col lg:flex-row gap-[64px] justify-between">
+        // <section className='relative z-10 pt-[160px] pb-[100px] flex flex-col lg:flex-row gap-[64px] w-full justify-between bg-cover bg-center bg-no-repeat bg-[url("/assets/bg-hero-gameseeker.jpg")]'>
+        <section className='relative z-10 pt-[160px] pb-[100px] flex flex-col lg:flex-row gap-[64px] w-full justify-between '>
+            <div className='absolute left-0 top-0 w-screen h-full bg-cover bg-center bg-no-repeat bg-[url("/assets/bg-hero-gameseeker.jpg")] -z-10' />
+            <div className="absolute bottom-0 left-0 w-screen h-32 bg-gradient-to-b from-transparent to-[#1F1434] -z-10" />
+            <div className="absolute top-0 left-0 w-screen h-32 bg-gradient-to-t from-transparent to-[#1F1434] -z-10" />
+            <div className="absolute top-0 left-0 w-24 h-full bg-gradient-to-l from-transparent to-[#1F1434] -z-10" />
+            {/* <div className="absolute top-0 right-0 w-24 h-full bg-gradient-to-r from-transparent to-[#1F1434] -z-1" /> */}
+            
             <TransitionAlert
                 message={errorMessage}
                 severity="error"
@@ -85,7 +92,7 @@ export default function Hero({gamesHighlights}: heroProps) {
                 onClose={() => setShowError(false)}
             />
 
-            <div className="hero-container-left">
+            <div className="relative w-full">
                 <h1>
                     Descubra Sua <br />
                     Próxima Aventura!
