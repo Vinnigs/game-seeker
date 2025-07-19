@@ -66,7 +66,7 @@ export default function Hero({gamesHighlights}: heroProps) {
             setGames(result);
             return true;
 
-        } catch (ex) {
+        } catch (error) {
             handleError("Erro inesperado ao buscar jogos");
             return false;
         } finally {
@@ -77,7 +77,7 @@ export default function Hero({gamesHighlights}: heroProps) {
     useEffect(() => {
         if (loading) setIsOpenOverlay(true); 
         else setIsOpenOverlay(false);
-    }, [loading]);
+    }, [loading, setIsOpenOverlay]);
 
 
     return (
