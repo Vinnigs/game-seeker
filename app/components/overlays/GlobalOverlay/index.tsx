@@ -10,6 +10,7 @@ export default function GlobalOverlay() {
         <>
             <Backdrop
                 open={isOpen}
+                sx={{zIndex:9999}}
             >
                 {content}
                 <CircularProgress />

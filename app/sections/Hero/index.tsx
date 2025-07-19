@@ -82,10 +82,7 @@ export default function Hero({gamesHighlights}: heroProps) {
 
     return (
         <section className='relative z-10 pt-[160px] pb-[100px] flex flex-col lg:flex-row gap-[64px] w-full justify-between '>
-            <div className='absolute left-0 top-0 w-screen h-full bg-cover bg-center bg-no-repeat bg-[url("/assets/bg-hero-gameseeker.jpg")] -z-10' />
-            <div className="absolute bottom-0 left-0 w-screen h-32 bg-gradient-to-b from-transparent to-[#1F1434] -z-10" />
-            <div className="absolute top-0 left-0 w-screen h-32 bg-gradient-to-t from-transparent to-[#1F1434] -z-10" />
-            <div className="absolute top-0 left-0 w-24 h-full bg-gradient-to-l from-transparent to-[#1F1434] -z-10" />
+            <div className='absolute left-1/2 -translate-1/2 top-90 w-screen h-full bg-cover bg-center bg-no-repeat bg-[url("/assets/bg-hero-gameseeker.jpg")] -z-50' />
             
             <TransitionAlert
                 message={errorMessage}
@@ -117,7 +114,7 @@ export default function Hero({gamesHighlights}: heroProps) {
                 <>
                     <div className="hidden lg:flex flex-row lg:flex-col gap-[32px]">
                         {gamesHighlights.slice(0, 3).map((game, index) => (
-                            <a key={index} href={`/games/${game.id}`} className="rounded-[5px] border border-[#8d78e950] bg-white/5 shadow-[1px_4px_18px_rgba(25,24,37,0.32)]">
+                            <a key={index} href={`/games/${game.id}`} className="rounded-[5px] border border-[#8d78e950] bg-white/5 shadow-[1px_4px_18px_rgba(25,24,37,0.32)] hover:bg-[rgba(255,255,255,0.4)] transition duration-150 ease-in-out">
                             {game?.screenshots?.[0]?.image && (
                                 <Image 
                                     src={game.screenshots[0].image.toString()}

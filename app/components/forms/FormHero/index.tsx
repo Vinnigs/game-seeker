@@ -25,17 +25,19 @@ export default function FormHero({
     }
   };
 
-  const handleClick = async (e: React.MouseEvent) => {
+const handleClick = async (
+  e: React.MouseEvent<HTMLButtonElement> | React.FormEvent<HTMLFormElement>
+) => {
     e.preventDefault();
 
     if (isButtonDisabled) return;
 
-    setIsButtonDisabled(true); // bloqueia clique
-    const success = await handleSearch();
+    setIsButtonDisabled(true);
+    const success = await handleSearch(e);
     if (success) toggleModal();
 
     setTimeout(() => {
-      setIsButtonDisabled(false); // libera o botão depois de 2s
+      setIsButtonDisabled(false);
     }, 2000);
   };
 
@@ -46,8 +48,14 @@ export default function FormHero({
         setOpenModal={setOpenModal}
         games={games}
       />
-
-      <div className="mt-[24px] max-w-[600px] flex flex-col items-start gap-[20px]">
+    
+      <form 
+        className="mt-[24px] max-w-[600px] flex flex-col items-start gap-[20px]"
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleClick(e);
+        }}
+      >
         <div className="w-full flex flex-row gap-[20px]">
           <SelectComponent
             id="plataforma"
@@ -84,12 +92,12 @@ export default function FormHero({
 
         <button
           className="primary-button"
-          onClick={handleClick}
           disabled={isButtonDisabled}
+          type="submit"
         >
           {"Descobrir"}
         </button>
-      </div>
+      </form>
     </>
   );
 }

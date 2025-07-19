@@ -9,7 +9,7 @@ export default function CardGame({
     date,
     platform,
     image,
-    position = "vertical"
+    position = "vertical",
 }: cardGameProps) {
 
     const platforms = platform
@@ -34,7 +34,7 @@ export default function CardGame({
             {position == "vertical" ? (
                 <Link 
                     href={`/games/${gameId}`}
-                    className="relative block px-[24px] py-[28px] rounded-[8px] bg-[rgba(255,255,255,0.03)]"
+                    className="relative block px-[24px] py-[28px] rounded-[8px] bg-[rgba(255,255,255,0.03)] hover:bg-[rgba(255,255,255,0.08)] transition duration-150 ease-in-out"
                     style={{
                         isolation: 'isolate'
                     }}

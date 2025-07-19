@@ -46,13 +46,13 @@ export default function Lancamentos({games}: lancamentosProps) {
 
     return (
     <section className="mt-[100px]">
-        <h3 className="mb-[32px]">Lançamentos</h3>
+        <h2 className="mb-[32px] grey">Lançamentos</h2>
 
         <div className="
             relative
             left-1/2 ml-[-50vw] w-screen
             sm:left-[-30] sm:ml-0
-            md:!left-0 md:!ml-0 md:!w-full md:container
+            md:!left-0 md:!ml-0 md:!w-full 
         ">
             <Swiper
                 slidesPerView={1}
@@ -106,7 +106,7 @@ export default function Lancamentos({games}: lancamentosProps) {
                             >
                             <div className="absolute inset-0 z-0 bg-[linear-gradient(90deg,#191825_2.19%,rgba(25,24,37,0.81)_33.25%,rgba(25,24,37,0)_101.6%)]" />
 
-                            <div className="relative z-10 w-full max-w-[450px] lg:mx-0 md:ml-15 container">
+                            <div className="relative z-10 w-full max-w-[250px] lg:max-w-[400px] lg:mx-0 md:ml-15">
                                 <h2>{game.title}</h2>
                                 <p>{game.genre}</p>
 

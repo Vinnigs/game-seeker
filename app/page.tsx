@@ -16,7 +16,7 @@ export default async function Home() {
   const mostRecentGames: GameDetails[] = getMostRecentGames(games);
   
   return (
-    <div className="container px-5 md:mx-auto">
+    <div className="container px-5 mx-auto">
 
       <Header />
 

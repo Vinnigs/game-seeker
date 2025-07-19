@@ -12,8 +12,8 @@ export default function JogosPopulares({games}: JogosPopularesProps) {
     return (
         <section className="relative">
             <div className="flex flex-row justify-between items-center mb-[32px]">
-                <h2>Jogos Populares</h2>
-                <Link href={`/games`} className="!hidden lg:!flex">
+                <h2 className="grey">Jogos Populares</h2>
+                <Link href={`/games`} className="secondary-button !hidden lg:!flex">
                     Ver tudo
                 </Link>
             </div>
@@ -28,7 +28,7 @@ export default function JogosPopulares({games}: JogosPopularesProps) {
 
             <div className="mt-[32px] flex justify-start lg:hidden">
                 <Link href={`/games`} className="secondary-button">
-                    Ver todos
+                    Ver tudo
                 </Link>
             </div>
 

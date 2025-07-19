@@ -15,8 +15,8 @@ export const boxStyle = {
     borderRadius: 2,
     py: 4,
     px: {
-        sm: 0,
-        md: 0,
+        sm: 4,
+        md: 4,
         lg: 4
     },
     color: 'white',

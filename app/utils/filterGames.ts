@@ -6,7 +6,6 @@ export function filterGames(
   platforms?: string[],
   memory?: string
 ): GameDetails[] {
-  // ✅ Retorna todos os jogos se nenhum filtro foi passado
   const noFilters =
     (!genresOrTags || genresOrTags.length === 0) &&
     (!platforms || platforms.length === 0) &&
