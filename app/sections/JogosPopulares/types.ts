@@ -1,5 +1,5 @@
-import { Game } from "../../types/GameDetails"
+import { GameDetails } from "../../types/GameDetails"
 
 export type JogosPopularesProps = {
-    games: Game[];
+    games: GameDetails[];
 }

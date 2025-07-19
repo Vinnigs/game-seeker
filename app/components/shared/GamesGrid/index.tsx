@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import CardGame from "../CardGame";
-import { gamesGridProps } from "./types";
+import { GamesGridProps } from "./types";
 import { Pagination } from "@mui/material";
 import { paginationStyles } from "@/styles/paginationStyles";
 
@@ -11,7 +11,7 @@ export default function GamesGrid({
     pagination,
     cardsPosition,
     cardsLimit
-}: gamesGridProps) {
+}: GamesGridProps) {
     
     const [page, setPage] = useState<number>(1);
     const itemsPerPage = cardsLimit;

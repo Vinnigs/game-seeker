@@ -1,6 +1,6 @@
 import { GameDetails } from "@/types/GameDetails"
 
-export type gamesGridProps = {
+export type GamesGridProps = {
     games: GameDetails[];
     pagination?: boolean;
     cardsPosition: "vertical" | "horizontal";

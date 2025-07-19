@@ -1,14 +1,14 @@
-import { breadcrumbMuiStyles } from '@/styles/muiStyles';
+import { breadcrumbMuiStyles } from "@/styles/muiStyles";
 import { Stack } from '@mui/material';
 import BreadcrumbsMui from '@mui/material/Breadcrumbs';
 import { JSX } from 'react';
 
-export type breadcrumbsType = {
+export type BreadcrumbsProps = {
     pages: JSX.Element[];
     currentPage: JSX.Element
 }
 
-export default function Breadcrumbs({pages, currentPage}: breadcrumbsType) {
+export default function Breadcrumbs({pages, currentPage}: BreadcrumbsProps) {
 
     const items = [...pages, currentPage];
 

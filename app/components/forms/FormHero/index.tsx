@@ -5,7 +5,7 @@ import ModalSearchGame from "../../modals/ModalSearchGame";
 import SelectComponent from "../SelectComponent";
 import InputTextComponent from "../InputTextComponent";
 import { genderOptions, plataformOptions } from "@/constants/formOptions";
-import { formHeroProps } from "./types";
+import { FormHeroProps } from "./types";
 
 export default function FormHero({
   formData,
@@ -13,7 +13,7 @@ export default function FormHero({
   handleSearch,
   games,
   hasError,
-}: formHeroProps) {
+}: FormHeroProps) {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 

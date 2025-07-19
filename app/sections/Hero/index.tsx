@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import FormHero from "../../components/forms/FormHero";
-import { formDataType } from "./types";
+import { FormDataProps } from "./types";
 import { useEffect, useState } from "react";
 import { GameDetails } from "@/types/GameDetails";
 import { useOverlay } from "@/contexts";
@@ -13,11 +13,11 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-export type heroProps = {
+export type HeroProps = {
     gamesHighlights: GameDetails[];
 }
 
-export default function Hero({gamesHighlights}: heroProps) {
+export default function Hero({gamesHighlights}: HeroProps) {
     
     const { setIsOpen: setIsOpenOverlay  } = useOverlay();
 
@@ -26,7 +26,7 @@ export default function Hero({gamesHighlights}: heroProps) {
     const [showError, setShowError] = useState<boolean>(false);
     const [loading, setLoading] = useState<boolean>(false)
 
-    const [formData, setFormData] = useState<formDataType>({
+    const [formData, setFormData] = useState<FormDataProps>({
         genre: [],
         platform: [],
         memory: ""

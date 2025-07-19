@@ -1,6 +1,6 @@
 import { Dispatch, ReactNode, SetStateAction } from "react";
 
-export type OverlayContextType = {
+export type OverlayContextProps = {
   isOpen: boolean;
   content: ReactNode;
   openOverlay: (content: ReactNode) => void;

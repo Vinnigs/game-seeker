@@ -10,7 +10,7 @@ import {
 import CloseIcon from '@mui/icons-material/Close';
 import { useEffect, useState } from "react";
 
-export type TransitionAlertType = {
+export type TransitionAlertProps = {
   message: string;
   severity?: AlertColor;
   duration?: number;
@@ -24,7 +24,7 @@ export default function TransitionAlert({
   duration = 6000,
   open = true,
   onClose,
-}: TransitionAlertType) {
+}: TransitionAlertProps) {
   const [internalOpen, setInternalOpen] = useState(open);
 
   useEffect(() => {

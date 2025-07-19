@@ -9,11 +9,11 @@ import 'swiper/css/pagination';
 import { GameDetails } from "../types/GameDetails";
 import { useEffect } from "react";
 
-export type lancamentosProps = {
+export type LancamentosProps = {
     games: GameDetails[]
 } 
 
-export default function Lancamentos({games}: lancamentosProps) {
+export default function Lancamentos({games}: LancamentosProps) {
 
     useEffect(() => {
   const updateBullets = () => {

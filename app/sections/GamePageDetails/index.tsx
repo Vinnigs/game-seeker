@@ -1,7 +1,7 @@
 "use client"
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { GamePageDetailsProps } from "./type";
+import { GamePageDetailsProps } from "./types";
 import { Autoplay } from "swiper/modules";
 import { useState } from "react";
 import Image from "next/image";

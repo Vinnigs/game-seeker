@@ -1,9 +1,9 @@
 'use client';
 
 import { createContext, useContext, useState, ReactNode } from 'react';
-import { OverlayContextType } from './types';
+import { OverlayContextProps } from './types';
 
-const OverlayContext = createContext<OverlayContextType | undefined>(undefined);
+const OverlayContext = createContext<OverlayContextProps | undefined>(undefined);
 
 export const OverlayProvider = ({ children }: { children: ReactNode }) => {
 

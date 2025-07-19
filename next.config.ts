@@ -11,7 +11,10 @@ const nextConfig: NextConfig = {
   },
   typescript: {
     tsconfigPath: "./tsconfig.json"
-  }
+  },
+  poweredByHeader: false,
+  reactStrictMode: true,
+  compress: true
 };
 
 export default nextConfig;

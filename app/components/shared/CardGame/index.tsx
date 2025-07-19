@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { cardGameProps } from "./types";
+import { CardGameProps } from "./types";
 import Link from "next/link";
 
 export default function CardGame({
@@ -10,7 +10,7 @@ export default function CardGame({
     platform,
     image,
     position = "vertical",
-}: cardGameProps) {
+}: CardGameProps) {
 
     const platforms = platform
                         .split(",")
