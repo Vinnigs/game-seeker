@@ -1,6 +1,6 @@
 'use client';
 
-import { useOverlay } from "@/app/contexts";
+import { useOverlay } from "@/contexts";
 import { Backdrop, CircularProgress } from "@mui/material";
 
 export default function GlobalOverlay() {

@@ -1,4 +1,4 @@
-import { textFieldStyle } from "@/app/styles/muiStyles";
+import { textFieldStyle } from "@/styles/muiStyles";
 import { TextField } from "@mui/material";
 import { InputTextComponentProps } from "./types";
 

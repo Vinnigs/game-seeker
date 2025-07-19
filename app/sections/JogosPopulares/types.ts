@@ -1,4 +1,4 @@
-import { Game } from "@/app/types/Game"
+import { Game } from "@/types/Game"
 
 export type JogosPopularesProps = {
     games: Game[];

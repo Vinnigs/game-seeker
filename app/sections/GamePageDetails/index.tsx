@@ -8,9 +8,10 @@ import Image from "next/image";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import Breadcrumbs from '@/app/components/shared/Breadcrumbs';
+import Breadcrumbs from '@/components/shared/Breadcrumbs';
 import Link from 'next/link';
-import { pagesData } from '@/app/config/breadcrumbs';
+import { pagesData } from '@/config/breadcrumbs';
+import { GameScreenshots } from '@/types/GameDetails';
 
 export default function GamePageDetails({game}: GamePageDetailsProps) {
 
@@ -89,7 +90,7 @@ export default function GamePageDetails({game}: GamePageDetailsProps) {
                             }}
                             speed={1500}
                         >
-                            {game.screenshots.map((pic) => {
+                            {game.screenshots.map((pic: GameScreenshots) => {
                                 return (
                                     <SwiperSlide
                                         key={pic.id}

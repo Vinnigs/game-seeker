@@ -1,8 +1,8 @@
 "use client"
 
-import GamesGrid from "@/app/components/shared/GamesGrid";
+import GamesGrid from "@/components/shared/GamesGrid";
 import { allGamesProps } from "./type";
-import { useIsMobile } from "@/app/hooks/useIsMobile";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 export default function AllGames({games}: allGamesProps) {
 

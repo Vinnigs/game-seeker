@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { GameDetails } from "@/app/types/GameDetails";
-import { fetchGamesDynamic } from "@/app/lib/api/freetogame";
+import { GameDetails } from "@/types/GameDetails";
+import { fetchGamesDynamic } from "@/lib/api/freetogame";
 
 export async function POST(req: NextRequest) {
   const { genre, platform, memory } = await req.json();

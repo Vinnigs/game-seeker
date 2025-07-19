@@ -1,4 +1,4 @@
-import { breadcrumbMuiStyles } from '@/app/styles/muiStyles';
+import { breadcrumbMuiStyles } from '@/styles/muiStyles';
 import { Stack } from '@mui/material';
 import BreadcrumbsMui from '@mui/material/Breadcrumbs';
 import { JSX } from 'react';

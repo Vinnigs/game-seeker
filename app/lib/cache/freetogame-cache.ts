@@ -1,8 +1,8 @@
 import fs from 'fs/promises';
 import path from 'path';
-import { API_BASE_URL } from '@/app/config/api';
-import { Game } from '@/app/types/Game';
-import { GameDetails } from '@/app/types/GameDetails';
+import { API_BASE_URL } from '@/config/api';
+import { Game } from '@/types/Game';
+import { GameDetails } from '@/types/GameDetails';
 import { decode, encode } from '@msgpack/msgpack';
 
 const CACHE_FILE = path.resolve(process.cwd(), 'app/lib/cache/gamesCache.msgpack');

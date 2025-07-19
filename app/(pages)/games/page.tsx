@@ -1,9 +1,9 @@
-import Breadcrumbs from "@/app/components/shared/Breadcrumbs";
-import { fetchGamesDynamic } from "@/app/lib/api/freetogame";
-import AllGames from "@/app/sections/AllGames";
-import Footer from "@/app/sections/Footer";
-import Header from "@/app/sections/Header";
-import { GameDetails } from "@/app/types/GameDetails";
+import Breadcrumbs from "@/components/shared/Breadcrumbs";
+import { fetchGamesDynamic } from "@/lib/api/freetogame";
+import AllGames from "@/sections/AllGames";
+import Footer from "@/sections/Footer";
+import Header from "@/sections/Header";
+import { GameDetails } from "@/types/GameDetails";
 import Link from "next/link";
 
 export default async function Games() {

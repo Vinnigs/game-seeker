@@ -1,6 +1,6 @@
 import { Modal, Box } from '@mui/material';
 import { Icon } from "@iconify/react";
-import { boxStyle } from "@/app/styles/muiStyles";
+import { boxStyle } from "@/styles/muiStyles";
 import { ModalSearchGameProps } from "./types";
 import GamesGrid from "../../shared/GamesGrid";
 

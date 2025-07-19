@@ -1,4 +1,4 @@
-import { GameDetails } from "@/app/types/GameDetails";
+import { GameDetails } from "@/types/GameDetails";
 
 export type GamePageDetailsProps = {
     game: GameDetails;

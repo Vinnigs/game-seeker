@@ -4,7 +4,7 @@ import { useState } from "react";
 import ModalSearchGame from "../../modals/ModalSearchGame";
 import SelectComponent from "../SelectComponent";
 import InputTextComponent from "../InputTextComponent";
-import { genderOptions, plataformOptions } from "@/app/constants/formOptions";
+import { genderOptions, plataformOptions } from "@/constants/formOptions";
 import { formHeroProps } from "./types";
 
 export default function FormHero({

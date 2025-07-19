@@ -1,4 +1,4 @@
-import { GameDetails } from "@/app/types/GameDetails";
+import { GameDetails } from "@/types/GameDetails";
 import { Dispatch, SetStateAction } from "react";
 
 export type ModalSearchGameProps = {

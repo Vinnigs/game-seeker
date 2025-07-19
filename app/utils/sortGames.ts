@@ -1,5 +1,5 @@
 import { SortByEnum } from "../enums/SortByEnum";
-import { GameDetails } from "../types/GameDetails";
+import { GameDetails } from "@/types/GameDetails";
 
 export function sortGames(games: GameDetails[], sortBy: string): GameDetails[] {
   return [...games].sort((_a, _b) => {

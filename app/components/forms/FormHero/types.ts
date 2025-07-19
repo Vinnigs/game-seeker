@@ -1,5 +1,5 @@
-import { formDataType } from "@/app/sections/Hero/types"
-import { GameDetails } from "@/app/types/GameDetails"
+import { formDataType } from "@/sections/Hero/types"
+import { GameDetails } from "@/types/GameDetails"
 import { Dispatch, SetStateAction } from "react"
 
 export type formHeroProps = {

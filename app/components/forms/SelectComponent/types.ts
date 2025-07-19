@@ -1,5 +1,5 @@
-import { GenreEnum } from "@/app/enums/GenreEnum";
-import { PlatformEnum } from "@/app/enums/PlataformEnum";
+import { GenreEnum } from "@/enums/GenreEnum";
+import { PlatformEnum } from "@/enums/PlataformEnum";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;

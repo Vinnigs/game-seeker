@@ -8,7 +8,7 @@ import FormControl from '@mui/material/FormControl';
 import ListItemText from '@mui/material/ListItemText';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Checkbox from '@mui/material/Checkbox';
-import { inputLabelStyle, selectStyle } from '@/app/styles/muiStyles';
+import { inputLabelStyle, selectStyle } from '@/styles/muiStyles';
 import { MenuProps, SelectComponentProps } from './types';
 import { customArrowIcon } from './CustomArrowIcon';
 

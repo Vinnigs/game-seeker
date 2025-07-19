@@ -4,7 +4,7 @@ import { useState } from "react";
 import CardGame from "../CardGame";
 import { gamesGridProps } from "./types";
 import { Pagination } from "@mui/material";
-import { paginationStyles } from "@/app/styles/paginationStyles";
+import { paginationStyles } from "@/styles/paginationStyles";
 
 export default function GamesGrid({
     games,

@@ -1,9 +1,9 @@
 "use client"
 
 import { JogosPopularesProps } from "./types";
-import GamesGrid from "@/app/components/shared/GamesGrid";
+import GamesGrid from "@/components/shared/GamesGrid";
 import Link from "next/link";
-import { useIsMobile } from "@/app/hooks/useIsMobile";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 export default function JogosPopulares({games}: JogosPopularesProps) {
 
