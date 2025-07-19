@@ -5,7 +5,7 @@ import { Dispatch, SetStateAction } from "react"
 export type formHeroProps = {
     formData: formDataType
     setFormData: Dispatch<SetStateAction<formDataType>>
-    handleSearch: () => Promise<boolean>;
+    handleSearch: (e: React.FormEvent | React.MouseEvent) => Promise<boolean>;
     games: GameDetails[];
     hasError?: boolean;
 }

@@ -16,7 +16,9 @@ export default function GamePageDetails({game}: GamePageDetailsProps) {
     const [modalImage, setModalImage] = useState<string | null>(null);
 
     return (
-        <section className="mt-[130px] flex flex-col lg:flex-row gap-[24px] md:gap-[48px]">
+        <section className="relative mt-[130px] flex flex-col lg:flex-row gap-[24px] md:gap-[48px]">
+            <div className='absolute left-1/2 -translate-x-1/2 bottom-[60%] w-screen h-full bg-cover bg-center bg-no-repeat bg-[url("/assets/bg-games-populares.jpg")] -z-10' />
+
             <div className="!block md:!hidden">
                 <Breadcrumbs 
                     pages={[
@@ -57,7 +59,7 @@ export default function GamePageDetails({game}: GamePageDetailsProps) {
 
                 <div className="flex items-center justify-between w-full">
                     <h2 className="mt-0 mb-3 md:mt-[8px]">{game.title}</h2>
-                    <p className="!hidden md:!block lg:!hidden tag-button green small mt-5">Gratuito</p>
+                    <p className="!hidden md:!block lg:!hidden tag-button green small">Gratuito</p>
                 </div>
                 
                 <a 
@@ -67,7 +69,7 @@ export default function GamePageDetails({game}: GamePageDetailsProps) {
                 >
                     <button className="uppercase font-black">Jogar Agora</button>
                 </a>
-                <p className="block md:!hidden lg:!block tag-button green small mt-5">Gratuito</p>
+                <p className="block md:!hidden lg:!block tag-button green small mt-5 lg:mt-0 lg:mb-[14px]">Gratuito</p>
 
                 <p className="mt-[48px] lg:mt-[24px] grey">{game.description}</p>
 

@@ -9,7 +9,7 @@ export default function CardGame({
     date,
     platform,
     image,
-    position = "vertical"
+    position = "vertical",
 }: cardGameProps) {
 
     const platforms = platform
@@ -32,39 +32,64 @@ export default function CardGame({
     return (
         <>
             {position == "vertical" ? (
-                    <Link 
-                        href={`/games/${gameId}`}
-                        className="px-[24px] py-[28px] border border-[#8D78E9] rounded-[8px] bg-[rgba(255,255,255,0.03)]"
-                    >
-                        <Image 
-                            src={image}
-                            width={300}
-                            height={300}
-                            alt="Jogo thumbnail"
-                            className="w-full max-h-[300px] rounded-[4px]"
-                        />
-                        <h3 className="mt-[14px]">{title}</h3>
-                        <p className="small grey">{genre}</p>
+                <Link 
+                    href={`/games/${gameId}`}
+                    className="relative block px-[24px] py-[28px] rounded-[8px] bg-[rgba(255,255,255,0.03)] hover:bg-[rgba(255,255,255,0.08)] transition duration-150 ease-in-out"
+                    style={{
+                        isolation: 'isolate'
+                    }}
+                >
+                    <div className="absolute inset-0 rounded-[8px] z-[-1]"
+                        style={{
+                            background: 'linear-gradient(to bottom right, #8D78E9, #FFFFFF)',
+                            opacity: 0.6,
+                            padding: '1px',
+                            WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                            mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                            WebkitMaskComposite: 'xor',
+                            maskComposite: 'exclude',
+                        }}>
+                    </div>
+                    <Image 
+                        src={image}
+                        width={300}
+                        height={300}
+                        alt="Jogo thumbnail"
+                        className="w-full max-h-[300px] rounded-[4px]"
+                    />
+                    <h3 className="mt-[14px]">{title}</h3>
+                    <p className="small grey">{genre}</p>
 
-                        <div className="flex flex-row justify-between mt-[20px] px-[24px] py-[10px] bg-[rgba(141,120,233,0.20)] rounded-[4px]">
-                            <div className="flex flex-row items-center gap-[14px]">
-                                {icons.map(({ src, alt }) => (
-                                    <Image key={alt} src={src} alt={alt} width={24} height={24} />
-                                ))}
-                            </div>
-                            
-            
-                            <div className="flex flex-col items-end">
-                                <p className="small">Lançamento</p>
-                                <p className="small grey">{date}</p>
-                            </div>
+                    <div className="flex flex-row justify-between mt-[20px] px-[24px] py-[10px] bg-[rgba(141,120,233,0.20)] rounded-[4px]">
+                        <div className="flex flex-row items-center gap-[14px]">
+                            {icons.map(({ src, alt }) => (
+                                <Image key={alt} src={src} alt={alt} width={24} height={24} />
+                            ))}
                         </div>
-                    </Link>
+                        
+        
+                        <div className="flex flex-col items-end">
+                            <p className="small">Lançamento</p>
+                            <p className="small grey">{date}</p>
+                        </div>
+                    </div>
+                </Link>
             ) : (
                 <Link 
                     href={`/games/${gameId}`}
-                    className="w-full px-[20px] py-[14px] flex flex-row items-center justify-between border border-[#8D78E9] xl:rounded-[8px] bg-[rgba(255,255,255,0.03)]"
+                    className="relative w-full px-[20px] py-[14px] flex flex-row items-center justify-between xl:rounded-[8px] bg-[rgba(255,255,255,0.03)]"
                 >
+                    <div className="absolute inset-0 rounded-[8px] z-[-1]"
+                        style={{
+                            background: 'linear-gradient(to bottom right, #8D78E9, #FFFFFF)',
+                            opacity: 0.6,
+                            padding: '1px',
+                            WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                            mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                            WebkitMaskComposite: 'xor',
+                            maskComposite: 'exclude',
+                        }}>
+                    </div>
                     <div className="w-full flex flex-row items-center gap-[14px] lg:gap-[32px]">
                         <Image 
                             src={image}

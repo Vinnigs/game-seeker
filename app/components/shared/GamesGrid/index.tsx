@@ -1,13 +1,10 @@
 "use client"
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CardGame from "../CardGame";
 import { gamesGridProps } from "./types";
 import { Pagination } from "@mui/material";
 import { paginationStyles } from "@/app/styles/paginationStyles";
-import { PaginationEnum } from "@/app/enums/PaginationEnum";
-import { GamesGridEnum } from "@/app/enums/GamesGridEnum";
-import { useIsMobile } from "@/app/hooks/useIsMobile";
 
 export default function GamesGrid({
     games,
@@ -29,8 +26,8 @@ export default function GamesGrid({
                 <>
                     <div className={`w-full ${
                         cardsPosition === "vertical"
-                        ? "grid grid-cols-2 lg:grid-cols-4 gap-[30px]"
-                        : "flex flex-wrap items-start"
+                        ? "grid grid-cols-2 lg:grid-cols-4 gap-[24px]"
+                        : "flex flex-col gap-[8px]"
                     }`}>
                         {games.slice(start, end).map((game) => (
                             <CardGame
@@ -56,7 +53,7 @@ export default function GamesGrid({
                 </>
             ) : (
                 <div 
-                    className={cardsPosition == "vertical" ? "grid grid-cols-2 lg:grid-cols-4 gap-[30px]" : "gap-[30px]"}
+                    className={cardsPosition == "vertical" ? "grid grid-cols-2 lg:grid-cols-3 gap-[24px]" : "flex flex-col gap-[8px]"}
                 >
                     {games.slice(0, cardsLimit).map((game) => {
                         return (
