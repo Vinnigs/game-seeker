@@ -1,16 +1,21 @@
 import { API_BASE_URL } from "../../config/api";
 import { fetcher } from "./fetcher";
-import { GameDetails } from "../../types/GameDetails";
+import { Game, GameDetails } from "../../types/GameDetails";
 import { fetchAndCacheGames } from "../cache/freetogame-cache";
 import { filterGames } from "../../utils/filterGames";
-import { Game } from "../../types/Game";
 
 export async function fetchGames(): Promise<Game[]> {
     return fetcher<Game[]>(`${API_BASE_URL}/games`);
 }
 
-export async function fetchGamesById(id: string): Promise<GameDetails> {
-    return fetcher<GameDetails>(`${API_BASE_URL}/game?id=${id}`);
+export async function fetchGamesById(id: string): Promise<GameDetails | null> {
+    try {
+        const response = await fetcher<GameDetails>(`${API_BASE_URL}/game?id=${id}`);
+        if (!response) return null;
+        return response;
+    } catch {
+        return null;
+    }
 }
 
 async function fetchGamesByTags(tags: string[]): Promise<GameDetails[]> {

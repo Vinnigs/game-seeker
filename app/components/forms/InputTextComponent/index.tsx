@@ -20,12 +20,10 @@ export default function InputTextComponent({
             InputProps={{
                 inputProps: {
                 style: {
-                    // Remover setas no Chrome, Safari, Edge, Opera
                     MozAppearance: 'textfield',
                 },
                 },
                 sx: {
-                // Remove setas no Firefox
                 '& input[type=number]::-webkit-outer-spin-button': {
                     WebkitAppearance: 'none',
                     margin: 0,

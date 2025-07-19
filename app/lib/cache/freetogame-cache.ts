@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import { API_BASE_URL } from '@/config/api';
-import { Game } from '../../types/Game';
+import { Game } from '../../types/GameDetails';
 import { GameDetails } from '@/types/GameDetails';
 import { decode, encode } from '@msgpack/msgpack';
 
