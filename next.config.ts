@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
         hostname: "www.freetogame.com"
       }
     ]
+  },
+  typescript: {
+    tsconfigPath: "./tsconfig.json"
   }
 };
 

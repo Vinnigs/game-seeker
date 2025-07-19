@@ -1,9 +1,9 @@
-import { API_BASE_URL } from "@/config/api";
+import { API_BASE_URL } from "../../config/api";
 import { fetcher } from "./fetcher";
-import { GameDetails } from "@/types/GameDetails";
+import { GameDetails } from "../../types/GameDetails";
 import { fetchAndCacheGames } from "../cache/freetogame-cache";
-import { filterGames } from "@/utils/filterGames";
-import { Game } from "@/types/Game";
+import { filterGames } from "../../utils/filterGames";
+import { Game } from "../../types/Game";
 
 export async function fetchGames(): Promise<Game[]> {
     return fetcher<Game[]>(`${API_BASE_URL}/games`);
