@@ -1,12 +1,16 @@
 # GameSeeker
 
-GameSeeker é uma plataforma web para descoberta de jogos gratuitos, permitindo aos usuários encontrar jogos com base em suas preferências e especificações do sistema.
+GameSeeker é um website para descoberta de jogos gratuitos, permitindo aos usuários encontrar jogos com base em suas preferências e especificações do sistema.
+
+🌐 **Acesse o projeto**: [https://game-seeker-levelup.vercel.app/](https://game-seeker-levelup.vercel.app/)
+
 
 ## 🚀 Como Rodar o Projeto
 
 ### Pré-requisitos
 - Node.js (versão 18 ou superior)
 - NPM ou Yarn
+
 
 ### Instalação
 
@@ -31,6 +35,7 @@ yarn dev
 ```
 
 4. Acesse o projeto em [http://localhost:3000](http://localhost:3000)
+
 
 ## 🎮 Funcionalidades
 
@@ -60,6 +65,31 @@ yarn dev
 - Design moderno com elementos visuais atrativos
 - Animações suaves de transição
 - Feedback visual para interações do usuário
+
+
+## ⚙️ Especificações Técnicas
+
+### Infraestrutura
+- Integração contínua com GitHub e Vercel
+
+### Arquitetura
+- Estrutura de pastas organizada por features
+- Componentização modular para fácil manutenção
+- Tipagem forte com TypeScript
+- Padrões consistentes de código com ESLint
+
+### Performance
+- Cache inteligente de dados da API
+- Otimização de imagens com Next.js Image
+- Code splitting automático
+- Carregamento sob demanda (lazy loading)
+
+### Manutenibilidade
+- Componentes reutilizáveis
+- Separação clara de responsabilidades
+- Nomenclatura consistente
+- Documentação inline dos componentes principais
+
 
 ## 🛠 Tecnologias Utilizadas
 

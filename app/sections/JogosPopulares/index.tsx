@@ -10,7 +10,7 @@ export default function JogosPopulares({games}: JogosPopularesProps) {
     const isMobile = useIsMobile();
 
     return (
-        <section className="relative">
+        <section className="relative z-10">
             <div className="flex flex-row justify-between items-center mb-[32px]">
                 <h2 className="grey">Jogos Populares</h2>
                 <Link href={`/games`} className="secondary-button !hidden lg:!flex">
