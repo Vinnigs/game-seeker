@@ -141,8 +141,8 @@ export default function Hero({gamesHighlights}: heroProps) {
                                 speed={1500}
                         >
                             {gamesHighlights.slice(0, 3).map((game, index) => (
-                                <SwiperSlide>
-                                    <a key={index} href={`/games/${game.id}`} className="rounded-[5px]">
+                                <SwiperSlide key={index}>
+                                    <a href={`/games/${game.id}`} className="rounded-[5px]">
                                     {game?.screenshots?.[0]?.image && (
                                         <Image 
                                             src={game.screenshots[0].image.toString()}

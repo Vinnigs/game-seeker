@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
   try {
     const filteredGames: GameDetails[] = await fetchGamesDynamic(genreArray, platformArray, memory);
     return NextResponse.json(filteredGames);
-  } catch (err) {
+  } catch (_ex) {
     return NextResponse.json({ error: "Erro interno" }, { status: 500 });
   }
 }

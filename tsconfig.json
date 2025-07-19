@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
+    "types": ["next/types", "./app/types/next-types"],
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,

@@ -89,7 +89,7 @@ export default function Lancamentos({games}: lancamentosProps) {
                 }}
             >
                 {games.map((game) => (
-                    <SwiperSlide>
+                    <SwiperSlide key={game.id}>
                         <a 
                             href={`/games/${game.id}`}
                             className={`

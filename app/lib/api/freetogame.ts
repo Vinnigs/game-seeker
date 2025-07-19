@@ -44,8 +44,7 @@ async function fetchGamesByTags(tags: string[]): Promise<GameDetails[]> {
 export async function fetchGamesDynamic(
   genresOrTags?: string[],
   platforms?: string[],
-  memory?: string,
-  sortBy?: string
+  memory?: string
 ): Promise<GameDetails[]> {
   const hasGenresOrTags = genresOrTags && genresOrTags.length > 0;
 

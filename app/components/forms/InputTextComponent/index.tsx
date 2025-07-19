@@ -1,5 +1,5 @@
 import { textFieldStyle } from "@/app/styles/muiStyles";
-import { InputAdornment, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 import { InputTextComponentProps } from "./types";
 
 export default function InputTextComponent({ 

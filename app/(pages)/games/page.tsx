@@ -19,7 +19,7 @@ export default async function Games() {
 
                 <Breadcrumbs 
                     pages={[
-                        <Link href={"/"}>Início</Link>
+                        <Link key={"inicio"} href={"/"}>Início</Link>
                     ]}
                     currentPage={<p>Games</p>}
                 />

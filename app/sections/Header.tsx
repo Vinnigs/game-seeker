@@ -38,8 +38,8 @@ export default function Header() {
 
         <nav className="hidden lg:block">
           <ul className="flex flex-row gap-[48px]">
-            <li><a href="/">Início</a></li>
-            <li><a href="/games">Lista de Jogos</a></li>
+            <li><Link href="/">Início</Link></li>
+            <li><Link href="/games">Lista de Jogos</Link></li>
           </ul>
         </nav>
         <MobileMenu />

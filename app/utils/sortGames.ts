@@ -2,7 +2,7 @@ import { SortByEnum } from "../enums/SortByEnum";
 import { GameDetails } from "../types/GameDetails";
 
 export function sortGames(games: GameDetails[], sortBy: string): GameDetails[] {
-  return [...games].sort((a, b) => {
+  return [...games].sort((_a, _b) => {
     switch (sortBy) {
         case SortByEnum.ReleaseDate:
             return 0;

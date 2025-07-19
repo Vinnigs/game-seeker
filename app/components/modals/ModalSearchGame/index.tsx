@@ -1,4 +1,4 @@
-import { Modal, Box, Pagination } from '@mui/material';
+import { Modal, Box } from '@mui/material';
 import { Icon } from "@iconify/react";
 import { boxStyle } from "@/app/styles/muiStyles";
 import { ModalSearchGameProps } from "./types";

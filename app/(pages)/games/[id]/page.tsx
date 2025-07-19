@@ -6,29 +6,21 @@ import Lancamentos from "@/app/sections/Lancamentos";
 import { GameDetails } from "@/app/types/GameDetails";
 import { getMostRecentGames } from "@/app/utils/getMostRecentGames";
 
-type Props = {
-  params: {
-    id: string;
-  };
-}
 
-export default async function GamePage({params}: Props) {
 
-    const parameters = await params;
+export default async function GamePage({params}: {params: Promise<{ id: string }>}) {
+  const { id } = await params;
 
-    const game: GameDetails = await fetchGamesById(parameters.id);
-    const games: GameDetails[] = await fetchGamesDynamic();
-    const mostRecentGames: GameDetails[] = getMostRecentGames(games);
+  const game: GameDetails = await fetchGamesById(id);
+  const games: GameDetails[] = await fetchGamesDynamic();
+  const mostRecentGames: GameDetails[] = getMostRecentGames(games);
 
-    return (
-        <div className="container px-5 md:mx-auto">
-            <Header />
-            
-            <GamePageDetails game={game} />
-
-            <Lancamentos games={mostRecentGames} />
-
-            <Footer />
-        </div>
-    );
+  return (
+    <div className="container px-5 md:mx-auto">
+      <Header />
+      <GamePageDetails game={game} />
+      <Lancamentos games={mostRecentGames} />
+      <Footer />
+    </div>
+  );
 }

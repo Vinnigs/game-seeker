@@ -10,6 +10,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import Breadcrumbs from '@/app/components/shared/Breadcrumbs';
 import Link from 'next/link';
+import { pagesData } from '@/app/config/breadcrumbs';
 
 export default function GamePageDetails({game}: GamePageDetailsProps) {
 
@@ -22,8 +23,8 @@ export default function GamePageDetails({game}: GamePageDetailsProps) {
             <div className="!block md:!hidden">
                 <Breadcrumbs 
                     pages={[
-                        <Link href="/">Início</Link>,
-                        <Link href="/games">Games</Link>
+                        <Link key={"inicio"} href="/">Início</Link>,
+                        <Link key={"games"} href="/games">Games</Link>
                     ]}
                     currentPage={<p>{game.title}</p>}
                 />
@@ -47,11 +48,10 @@ export default function GamePageDetails({game}: GamePageDetailsProps) {
 
             <div className="container-right lg:w-[60%] flex flex-col items-start">
                 <div className="!hidden md:!block">
-                    <Breadcrumbs 
-                        pages={[
-                            <Link href="/">Início</Link>,
-                            <Link href="/games">Games</Link>
-                        ]}
+                    <Breadcrumbs
+                        pages={pagesData.map(({href, label}) => (
+                            <Link key={href} href={href}>{label}</Link>
+                        ))}
                         currentPage={<p>{game.title}</p>}
                     />
                 </div>
