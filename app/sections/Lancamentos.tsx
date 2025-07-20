@@ -45,7 +45,7 @@ export default function Lancamentos({games}: LancamentosProps) {
 }, []);
 
     return (
-    <section className="mt-[100px]">
+    <section className="relative mt-[100px] z-10">
         <h2 className="mb-[32px] grey">Lançamentos</h2>
 
         <div className="
