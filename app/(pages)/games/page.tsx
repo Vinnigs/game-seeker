@@ -14,20 +14,22 @@ export default async function Games() {
         <div className="container px-5 md:mx-auto">
             <Header />
 
-            <div className="mt-[130px] mb-[32px]">
-                <h2 className=" mb-[8px]">Todos os Jogos</h2>
+            <div className="relative z-20">
+                <div className="mt-[130px] mb-[32px]">
+                    <h2 className=" mb-[8px]">Todos os Jogos</h2>
 
-                <Breadcrumbs 
-                    pages={[
-                        <Link key={"inicio"} href={"/"}>Início</Link>
-                    ]}
-                    currentPage={<p>Games</p>}
+                    <Breadcrumbs 
+                        pages={[
+                            <Link key={"inicio"} href={"/"}>Início</Link>
+                        ]}
+                        currentPage={<p>Games</p>}
+                    />
+                </div>
+
+                <AllGames 
+                    games={games}
                 />
             </div>
-
-            <AllGames 
-                games={games}
-            />
 
             <Footer />
         </div>
