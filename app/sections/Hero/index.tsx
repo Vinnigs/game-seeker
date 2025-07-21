@@ -81,7 +81,7 @@ export default function Hero({gamesHighlights}: HeroProps) {
 
 
     return (
-        <section className='relative z-10 pt-[160px] pb-[100px] flex flex-col lg:flex-row gap-[64px] w-full justify-between '>
+        <section className='relative pt-[160px] pb-[100px] flex flex-col lg:flex-row gap-[64px] w-full justify-between '>
             <div className='absolute left-1/2 -translate-1/2 top-90 w-screen h-full bg-cover bg-center bg-no-repeat bg-[url("/assets/bg-hero-gameseeker.jpg")] -z-50' />
             <div className="hidden md:block absolute left-1/2 -translate-1/2 bottom-[-100px] w-screen h-32 bg-gradient-to-b from-transparent to-[#1F1434] -z-50" />
 
