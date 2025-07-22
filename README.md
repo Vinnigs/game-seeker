@@ -64,7 +64,6 @@ yarn dev
 - Menu responsivo com versão mobile
 - Design moderno com elementos visuais atrativos
 - Animações suaves de transição
-- Feedback visual para interações do usuário
 
 
 ## ⚙️ Especificações Técnicas
@@ -88,7 +87,6 @@ yarn dev
 - Componentes reutilizáveis
 - Separação clara de responsabilidades
 - Nomenclatura consistente
-- Documentação inline dos componentes principais
 
 
 ## 🛠 Tecnologias Utilizadas
