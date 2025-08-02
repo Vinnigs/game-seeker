@@ -11,7 +11,7 @@ export default function Footer() {
               chegar até aqui!
             </h2>
             <p className="grey mt-[32px] text-center lg:text-left">
-              Este projeto foi desenvolvido para o teste técnico da <strong>Level Up Latam</strong> e representa não apenas a etapa de um processo, mas também uma oportunidade de crescimento e aprendizado.
+              Este é um dos projetos que desenvolvi para praticar, aprender e compartilhar um pouco do que gosto de fazer.
             </p>
           </div>
 

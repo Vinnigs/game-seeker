@@ -74,45 +74,48 @@ export default function GamePageDetails({game}: GamePageDetailsProps) {
 
                 <p className="mt-[48px] lg:mt-[24px] grey">{game.description}</p>
 
-                <div className="mt-[40px] w-[100%]">
-                    <h3>Galeria</h3>
+                {game.screenshots && (
+                    <div className="mt-[40px] w-[100%]">
+                        <h3>Galeria</h3>
 
-                    <div className="mt-[18px] w-[100%] h-[100%] overflow-hidden">
-                        <Swiper
-                            slidesPerView={2}
-                            spaceBetween={24}
-                            modules={[Autoplay]}
-                            loop
-                            autoplay={{ 
-                                delay: 5000,
-                                pauseOnMouseEnter: true,
-                                disableOnInteraction: true
-                            }}
-                            speed={1500}
-                        >
-                            {game.screenshots.map((pic: GameScreenshots) => {
-                                return (
-                                    <SwiperSlide
-                                        key={pic.id}
-                                    >
-                                        <div 
-                                            className="w-full h-full relative cursor-pointer"
-                                            onClick={() => setModalImage(pic.image)}
+                        <div className="mt-[18px] w-[100%] h-[100%] overflow-hidden">
+                            <Swiper
+                                slidesPerView={2}
+                                spaceBetween={24}
+                                modules={[Autoplay]}
+                                loop
+                                autoplay={{ 
+                                    delay: 5000,
+                                    pauseOnMouseEnter: true,
+                                    disableOnInteraction: true
+                                }}
+                                speed={1500}
+                            >
+                                {game.screenshots.map((pic: GameScreenshots) => {
+                                    return (
+                                        <SwiperSlide
+                                            key={pic.id}
                                         >
-                                            <Image 
-                                                src={pic.image}
-                                                width={500}
-                                                height={200}
-                                                alt="Game Thumbnail"
-                                                className="rounded-[8px] object-cover"
-                                            />
-                                        </div>
-                                    </SwiperSlide>
-                                );
-                            })}
-                        </Swiper>
+                                            <div 
+                                                className="w-full h-full relative cursor-pointer"
+                                                onClick={() => setModalImage(pic.image)}
+                                            >
+                                                <Image 
+                                                    src={pic.image}
+                                                    width={500}
+                                                    height={200}
+                                                    alt="Game Thumbnail"
+                                                    className="rounded-[8px] object-cover"
+                                                />
+                                            </div>
+                                        </SwiperSlide>
+                                    );
+                                })}
+                            </Swiper>
+                        </div>
                     </div>
-                </div>
+
+                )}
 
                 { game.release_date && game.developer && game.publisher && game.genre && game.platform ? (
                     

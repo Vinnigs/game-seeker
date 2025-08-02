@@ -53,7 +53,7 @@ export default function GamesGrid({
                 </>
             ) : (
                 <div 
-                    className={cardsPosition == "vertical" ? "grid grid-cols-2 lg:grid-cols-3 gap-[24px]" : "flex flex-col gap-[8px]"}
+                    className={cardsPosition == "vertical" ? "grid grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-[24px]" : "flex flex-col gap-[8px]"}
                 >
                     {games.slice(0, cardsLimit).map((game) => {
                         return (
