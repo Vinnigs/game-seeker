@@ -2,7 +2,7 @@
 
 GameSeeker é um website para descoberta de jogos gratuitos, permitindo aos usuários encontrar jogos com base em suas preferências e especificações do sistema.
 
-🌐 **Acesse o projeto**: [https://game-seeker-levelup.vercel.app/](https://game-seeker-levelup.vercel.app/)
+🌐 **Acesse o projeto**: [https://gameseeker.vercel.app/](https://gameseeker.vercel.app/)
 
 
 ## 🚀 Como Rodar o Projeto
@@ -16,7 +16,7 @@ GameSeeker é um website para descoberta de jogos gratuitos, permitindo aos usu�
 
 1. Clone o repositório
 ```bash
-git clone https://github.com/Vinnigs/game-seeker-levelup.git
+git clone https://github.com/Vinnigs/game-seeker.git
 cd game-seeker
 ```
 
@@ -83,7 +83,7 @@ yarn dev
 - Code splitting automático
 - Carregamento sob demanda (lazy loading)
 
-### Manutenibilidade
+### Manutenabilidade
 - Componentes reutilizáveis
 - Separação clara de responsabilidades
 - Nomenclatura consistente
