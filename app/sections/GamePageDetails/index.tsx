@@ -43,7 +43,7 @@ export default function GamePageDetails({game}: GamePageDetailsProps) {
                     target="_blank" 
                     className="!hidden lg:!flex primary-button mt-[-24px] lg:ml-[32px]"
                 >
-                    <button className="uppercase font-black">Jogar Agora</button>
+                    <button className="uppercase font-black cursor-pointer">Jogar Agora</button>
                 </a>
             </div>
 
@@ -68,7 +68,7 @@ export default function GamePageDetails({game}: GamePageDetailsProps) {
                     target="_blank" 
                     className="lg:!hidden primary-button mt-4"
                 >
-                    <button className="uppercase font-black">Jogar Agora</button>
+                    <button className="uppercase font-black cursor-pointer">Jogar Agora</button>
                 </a>
                 <p className="block md:!hidden lg:!block tag-button green small mt-5 lg:mt-0 lg:mb-[14px]">Gratuito</p>
 
